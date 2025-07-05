@@ -1,0 +1,180 @@
+<div class="dashboard-container" fxLayout="column" fxLayoutGap="24px">
+  
+  <!-- Dashboard Header -->
+  <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <h1 class="dashboard-title">School Management Dashboard</h1>
+      <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
+    </div>
+    <div fxLayout="row" fxLayoutGap="16px">
+      <button mat-raised-button color="primary">
+        <mat-icon>refresh</mat-icon>
+        Refresh Data
+      </button>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- User Statistics Cards -->
+  <div class="stats-section" fxLayout="row" fxLayoutGap="24px" fxLayout.lt-md="column">
+    
+    <!-- Total Users Card -->
+    <mat-card class="stat-card total-users" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Total Users</div>
+        </div>
+        <mat-icon class="stat-icon">people</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Students Card -->
+    <mat-card class="stat-card students" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <mat-icon class="stat-icon">school</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Staff Card -->
+    <mat-card class="stat-card staff" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Staff</div>
+        </div>
+        <mat-icon class="stat-icon">work</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Guardians Card -->
+    <mat-card class="stat-card guardians" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Guardians</div>
+        </div>
+        <mat-icon class="stat-icon">family_restroom</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Admins Card -->
+    <mat-card class="stat-card admins" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Admins</div>
+        </div>
+        <mat-icon class="stat-icon">admin_panel_settings</mat-icon>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="main-content" fxLayout="row" fxLayoutGap="24px" fxLayout.lt-lg="column">
+    
+    <!-- Enrolment Trends
+    <div class="trends-section" fxFlex="2 1 600px" fxLayout="column" fxLayoutGap="16px">
+      <mat-card class="section-header-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>trending_up</mat-icon>
+            Enrolment Trends by Term
+          </mat-card-title>
+          <mat-card-subtitle>Student enrolment growth over the last 4 terms</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      
+      <div class="trends-grid" fxLayout="row" fxLayoutGap="16px" fxLayout.lt-md="column">
+        @for (trend of enrolmentTrends; track trend.term) {
+          <mat-card class="trend-card" fxFlex="1 1 200px">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px">
+              <div class="trend-term">{{ trend.term }}</div>
+              <div class="trend-students">{{ trend.students }} students</div>
+              <div class="trend-growth" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+                <mat-icon [style.color]="getGrowthColor(trend.growth) === 'green' ? '#4caf50' : '#f44336'">
+                  {{ getGrowthIcon(trend.growth) }}
+                </mat-icon>
+                <span [style.color]="getGrowthColor(trend.growth) === 'green' ? '#4caf50' : '#f44336'" class="growth-percentage">
+                  {{ trend.growth }}%
+                </span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    </div>
+
+    Recent Activities -->
+    <div class="activities-section" fxFlex="1 1 400px" fxLayout="column" fxLayoutGap="16px">
+      <mat-card class="section-header-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>notifications</mat-icon>
+            Recent Activities
+          </mat-card-title>
+          <mat-card-subtitle>Latest updates and notifications</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      
+      <div class="activities-grid" fxLayout="column" fxLayoutGap="12px">
+        <!--@for (activity of recentActivities; track activity.message) {
+          <mat-card class="activity-card">
+            <mat-card-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+              <div class="activity-icon-container" fxLayout="row" fxLayoutAlign="center center">
+                <mat-icon [color]="getActivityColor(activity.type)" class="activity-icon">
+                  {{ getActivityIcon(activity.type) }}
+                </mat-icon>
+              </div>
+              <div fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="4px">
+                <div class="activity-message">{{ activity.message }}</div>
+                <div class="activity-time">{{ activity.time }}</div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        }-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions Section -->
+  <div class="quick-actions" fxLayout="row" fxLayoutGap="16px" fxLayout.lt-md="column">
+    <mat-card class="action-card" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+        <mat-icon class="action-icon">person_add</mat-icon>
+        <div class="action-title">Add New Student</div>
+        <button mat-raised-button color="primary">Enrol Student</button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="action-card" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+        <mat-icon class="action-icon">assignment</mat-icon>
+        <div class="action-title">Manage Classes</div>
+        <button mat-raised-button color="accent">View Classes</button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="action-card" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+        <mat-icon class="action-icon">payment</mat-icon>
+        <div class="action-title">Fee Management</div>
+        <button mat-raised-button color="warn">Manage Fees</button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="action-card" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+        <mat-icon class="action-icon">analytics</mat-icon>
+        <div class="action-title">Reports</div>
+        <button mat-raised-button color="primary">Generate Report</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div style="min-height: 100%;" fxLayout="column">
+    
+    <mat-toolbar class="mat-elevation-z5">
+        <mat-toolbar-row fxLayout="row">
+            <button mat-icon-button color="primary" (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span fxFlex="1 1 auto"></span>
+            <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-drawer-container class="example-container" autosize fxFlex="1 1 auto">
+        <mat-drawer #drawer opened class="example-sidenav" mode="side" fxLayout="column">
+            <div id="profile">
+
+            </div>
+          <button mat-button routerLink="./dashboard">
+            <mat-icon>
+                dashboard
+            </mat-icon>
+            Dashboard
+        </button>
+        <button mat-button routerLink="./institution">
+            <mat-icon>business</mat-icon>
+            Institution
+        </button>
+        <button mat-button routerLink="./users">
+            <mat-icon>people</mat-icon>
+            Users
+        </button>
+        <button mat-button routerLink="./tickets">
+            <mat-icon>confirmation_number</mat-icon>
+            Support tickets
+        </button>
+        </mat-drawer>
+      
+        <div class="example-sidenav-content">
+          <router-outlet></router-outlet>
+        </div>
+      
+      </mat-drawer-container>
+    
+</div>

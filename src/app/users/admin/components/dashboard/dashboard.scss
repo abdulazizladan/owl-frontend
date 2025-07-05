@@ -1,0 +1,260 @@
+.dashboard-container {
+  padding: 24px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+  
+  .dashboard-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  
+  .dashboard-subtitle {
+    margin: 8px 0 0 0;
+    color: #666;
+    font-size: 16px;
+  }
+}
+
+.stats-section {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    @include mat.elevation(4);
+  }
+  
+  .stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .stat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    opacity: 0.7;
+  }
+  
+  &.total-users {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+  
+  &.students {
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+  
+  &.staff {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+  
+  &.guardians {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+  
+  &.admins {
+    background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+}
+
+.main-content {
+  margin-bottom: 24px;
+}
+
+// Section Header Cards
+.section-header-card {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  
+  mat-card-header {
+    margin-bottom: 0;
+    
+    mat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    
+    mat-card-subtitle {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}
+
+// Trends Section
+.trends-section {
+  .trends-grid {
+    .trend-card {
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 4px solid #667eea;
+      
+      &:hover {
+        transform: translateY(-2px);
+        @include mat.elevation(4);
+      }
+      
+      .trend-term {
+        font-weight: 600;
+        color: #1a1a1a;
+        font-size: 16px;
+        text-align: center;
+      }
+      
+      .trend-students {
+        color: #666;
+        font-size: 14px;
+        text-align: center;
+      }
+      
+      .trend-growth {
+        font-weight: 600;
+        font-size: 16px;
+        
+        .growth-percentage {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+/* Activities Section */
+.activities-section {
+  .activities-grid {
+    .activity-card {
+      border-radius: 8px;
+      background-color: #f8f9fa;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: none;
+      &:hover {
+        background-color: #e9ecef;
+        @include mat.elevation(4);
+      }
+      .activity-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+      }
+      .activity-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+      .activity-message {
+        font-size: 14px;
+        color: #1a1a1a;
+        margin-bottom: 2px;
+      }
+      .activity-time {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+}
+
+/* Quick Actions Section */
+.quick-actions {
+  .action-card {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+      @include mat.elevation(4);
+    }
+    .action-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      color: #667eea;
+    }
+    .action-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-align: center;
+    }
+    button {
+      width: 100%;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+  .dashboard-header {
+    .dashboard-title {
+      font-size: 24px;
+    }
+  }
+  .stat-card {
+    .stat-number {
+      font-size: 28px;
+    }
+    .stat-icon {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .trends-section, .activities-section {
+    .section-header-card {
+      mat-card-title {
+        font-size: 18px;
+      }
+    }
+  }
+}

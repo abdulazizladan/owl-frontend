@@ -1,0 +1,57 @@
+.example-container {
+    width: full;
+    height: 100%;
+    background-color: #dedede;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+    height: 100%;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 !important;
+    #profile{
+        width: 100%;
+        aspect-ratio: 1;
+        background-color: gray;
+    }
+    button {
+        width: 100%;
+    }
+  }
+  
+  /* Remove rounded corners from Material Design sidenav */
+  .mat-mdc-drawer {
+    border-radius: 0 !important;
+  }
+  
+  .mat-mdc-drawer-container {
+    border-radius: 0 !important;
+  }
+  
+  .mat-mdc-drawer-side {
+    border-radius: 0 !important;
+  }
+  
+  /* Ensure no rounded corners on the drawer surface */
+  .mat-mdc-drawer .mat-mdc-drawer-container {
+    border-radius: 0 !important;
+  }
+  
+  /* Override any Material Design default border radius */
+  .mat-mdc-drawer,
+  .mat-mdc-drawer-container,
+  .mat-mdc-drawer-side,
+  .mat-mdc-drawer .mat-mdc-drawer-container {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+  
