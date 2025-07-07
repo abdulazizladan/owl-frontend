@@ -48,3 +48,381 @@ button,
 .mat-mdc-icon-button {
   border-radius: 5px !important;
 }
+
+/* Material Design Elevation Utilities */
+.mat-elevation-z0 {
+  @include mat.elevation(0);
+}
+
+.mat-elevation-z1 {
+  @include mat.elevation(1);
+}
+
+.mat-elevation-z2 {
+  @include mat.elevation(2);
+}
+
+.mat-elevation-z3 {
+  @include mat.elevation(3);
+}
+
+.mat-elevation-z4 {
+  @include mat.elevation(4);
+}
+
+.mat-elevation-z5 {
+  @include mat.elevation(5);
+}
+
+.mat-elevation-z6 {
+  @include mat.elevation(6);
+}
+
+.mat-elevation-z7 {
+  @include mat.elevation(7);
+}
+
+.mat-elevation-z8 {
+  @include mat.elevation(8);
+}
+
+.mat-elevation-z9 {
+  @include mat.elevation(9);
+}
+
+.mat-elevation-z10 {
+  @include mat.elevation(10);
+}
+
+.mat-elevation-z11 {
+  @include mat.elevation(11);
+}
+
+.mat-elevation-z12 {
+  @include mat.elevation(12);
+}
+
+.mat-elevation-z13 {
+  @include mat.elevation(13);
+}
+
+.mat-elevation-z14 {
+  @include mat.elevation(14);
+}
+
+.mat-elevation-z15 {
+  @include mat.elevation(15);
+}
+
+.mat-elevation-z16 {
+  @include mat.elevation(16);
+}
+
+.mat-elevation-z17 {
+  @include mat.elevation(17);
+}
+
+.mat-elevation-z18 {
+  @include mat.elevation(18);
+}
+
+.mat-elevation-z19 {
+  @include mat.elevation(19);
+}
+
+.mat-elevation-z20 {
+  @include mat.elevation(20);
+}
+
+.mat-elevation-z21 {
+  @include mat.elevation(21);
+}
+
+.mat-elevation-z22 {
+  @include mat.elevation(22);
+}
+
+.mat-elevation-z23 {
+  @include mat.elevation(23);
+}
+
+.mat-elevation-z24 {
+  @include mat.elevation(24);
+}
+
+/* Hover elevation utilities */
+.mat-elevation-z0-hover:hover {
+  @include mat.elevation(0);
+}
+
+.mat-elevation-z1-hover:hover {
+  @include mat.elevation(1);
+}
+
+.mat-elevation-z2-hover:hover {
+  @include mat.elevation(2);
+}
+
+.mat-elevation-z4-hover:hover {
+  @include mat.elevation(4);
+}
+
+.mat-elevation-z8-hover:hover {
+  @include mat.elevation(8);
+}
+
+.mat-elevation-z16-hover:hover {
+  @include mat.elevation(16);
+}
+
+.mat-elevation-z24-hover:hover {
+  @include mat.elevation(24);
+}
+
+/* Transition utilities for smooth elevation changes */
+.mat-elevation-transition {
+ 
+}
+
+/* Custom elevation mixins for components */
+@mixin card-elevation {
+  @include mat.elevation(2);
+  
+  &:hover {
+    @include mat.elevation(4);
+  }
+}
+
+@mixin button-elevation {
+  @include mat.elevation(2);
+  
+  &:hover {
+    @include mat.elevation(4);
+  }
+  
+  &:active {
+    @include mat.elevation(8);
+  }
+}
+
+@mixin dialog-elevation {
+  @include mat.elevation(24);
+}
+
+@mixin toolbar-elevation {
+  @include mat.elevation(4);
+}
+
+@mixin fab-elevation {
+  @include mat.elevation(6);
+  
+  &:hover {
+    @include mat.elevation(12);
+  }
+  
+  &:active {
+    @include mat.elevation(12);
+  }
+}
+
+/* Apply elevation to common Material components */
+.mat-mdc-card {
+  @include card-elevation;
+}
+
+.mat-mdc-raised-button {
+  @include button-elevation;
+}
+
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  @include fab-elevation;
+}
+
+.mat-mdc-toolbar {
+  @include toolbar-elevation;
+}
+
+/* Custom elevation classes for specific use cases */
+.elevation-card {
+  @include mat.elevation(2);
+  border-radius: 8px;
+
+  
+  &:hover {
+    @include mat.elevation(4);
+  }
+}
+
+.elevation-button {
+  @include mat.elevation(2);
+
+  
+  &:hover {
+    @include mat.elevation(4);
+  }
+  
+  &:active {
+    @include mat.elevation(8);
+  }
+}
+
+.elevation-dialog {
+  @include mat.elevation(24);
+}
+
+.elevation-toolbar {
+  @include mat.elevation(4);
+}
+
+.elevation-fab {
+  @include mat.elevation(6);
+
+  
+  &:hover {
+    @include mat.elevation(12);
+  }
+  
+  &:active {
+    @include mat.elevation(12);
+  }
+}
+
+/* Material Dialog - Remove Border Radius */
+.mat-mdc-dialog-container {
+  border-radius: 0 !important;
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: 0 !important;
+}
+
+.mat-mdc-dialog-panel {
+  border-radius: 0 !important;
+}
+
+.mat-mdc-dialog-content {
+  border-radius: 0 !important;
+}
+
+/* Override all dialog border radius properties */
+.mat-mdc-dialog-container,
+.mat-mdc-dialog-surface,
+.mat-mdc-dialog-panel,
+.mat-mdc-dialog-content {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Dialog backdrop styling */
+.mat-mdc-dialog-backdrop {
+  border-radius: 0 !important;
+}
+
+/* Dialog animation container */
+.mat-mdc-dialog-container .mat-mdc-dialog-surface {
+  border-radius: 0 !important;
+}
+
+/* Ensure dialog content has no rounded corners */
+.mat-mdc-dialog-container .mat-mdc-dialog-content {
+  border-radius: 0 !important;
+}
+
+/* Dialog actions container */
+.mat-mdc-dialog-actions {
+  border-radius: 0 !important;
+}
+
+/* Dialog title container */
+.mat-mdc-dialog-title {
+  border-radius: 0 !important;
+}
+
+/* Override any Material Design default dialog styling */
+.mat-mdc-dialog-container,
+.mat-mdc-dialog-surface,
+.mat-mdc-dialog-panel,
+.mat-mdc-dialog-content,
+.mat-mdc-dialog-actions,
+.mat-mdc-dialog-title,
+.mat-mdc-dialog-backdrop {
+  border-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Additional dialog component overrides */
+.mat-mdc-dialog-container .mat-mdc-dialog-surface,
+.mat-mdc-dialog-container .mat-mdc-dialog-panel,
+.mat-mdc-dialog-container .mat-mdc-dialog-content {
+  border-radius: 0 !important;
+}
+
+/* Ensure dialog animations don't add rounded corners */
+.mat-mdc-dialog-container.cdk-overlay-pane {
+  border-radius: 0 !important;
+}
+
+/* Dialog overlay container */
+.cdk-overlay-pane .mat-mdc-dialog-container {
+  border-radius: 0 !important;
+}
+
+/* Global dialog styling for all dialog types */
+[role="dialog"] {
+  border-radius: 0 !important;
+}
+
+/* Override any potential CSS custom properties */
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 0 !important;
+  border-radius: 0 !important;
+}
+
+.mat-mdc-dialog-surface {
+  --mdc-dialog-container-shape: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Ensure no rounded corners on dialog focus states */
+.mat-mdc-dialog-container:focus,
+.mat-mdc-dialog-surface:focus,
+.mat-mdc-dialog-panel:focus {
+  border-radius: 0 !important;
+  outline: none;
+}
+
+/* Dialog responsive design - maintain no rounded corners */
+@media (max-width: 768px) {
+  .mat-mdc-dialog-container,
+  .mat-mdc-dialog-surface,
+  .mat-mdc-dialog-panel,
+  .mat-mdc-dialog-content {
+    border-radius: 0 !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .mat-mdc-dialog-container,
+  .mat-mdc-dialog-surface,
+  .mat-mdc-dialog-panel,
+  .mat-mdc-dialog-content {
+    border-radius: 0 !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .mat-mdc-dialog-container,
+  .mat-mdc-dialog-surface,
+  .mat-mdc-dialog-panel,
+  .mat-mdc-dialog-content {
+    border-radius: 0 !important;
+  }
+}

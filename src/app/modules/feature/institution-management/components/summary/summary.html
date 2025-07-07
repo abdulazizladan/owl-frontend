@@ -1,1 +1,26 @@
-<p>summary works!</p>
+<div class="dashboard-container" fxLayout="column" fxLayoutGap="24px">
+  
+    <!-- Dashboard Header -->
+    <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
+      <div>
+        <h1 class="dashboard-title">Institution Details</h1>
+        <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
+      </div>
+      <div fxLayout="row" fxLayoutGap="16px">
+        <button mat-raised-button color="primary">
+          <mat-icon>refresh</mat-icon>
+          Refresh Data
+        </button>
+        <button mat-icon-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <ul>
+        <li>Institution name</li>
+        <li>Campuses</li>
+        <li>Buildings</li>
+        <li>Departments/units</li>
+    </ul>
+</div>

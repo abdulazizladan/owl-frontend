@@ -31,7 +31,6 @@
   
   &:hover {
     transform: translateY(-2px);
-    @include mat.elevation(4);
   }
   
   .stat-number {
@@ -139,7 +138,6 @@
       
       &:hover {
         transform: translateY(-2px);
-        @include mat.elevation(4);
       }
       
       .trend-term {
@@ -177,7 +175,6 @@
       box-shadow: none;
       &:hover {
         background-color: #e9ecef;
-        @include mat.elevation(4);
       }
       .activity-icon-container {
         display: flex;
@@ -210,7 +207,6 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     &:hover {
       transform: translateY(-2px);
-      @include mat.elevation(4);
     }
     .action-icon {
       font-size: 48px;

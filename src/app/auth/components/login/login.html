@@ -58,14 +58,16 @@
           color="primary" 
           type="submit" 
           [disabled]="isLoading || userLoginForm.invalid"
-          fxLayoutAlign="center center">
+          fxLayoutAlign="center center"
+          routerLink="../../admin"
+          >
           @if (!isLoading) {
             <mat-icon>login</mat-icon>
           }
           @if (isLoading) {
             <mat-progress-spinner diameter="20"></mat-progress-spinner>
           }
-          <span>{{ isLoading ? 'Signing in...' : 'Sign In' }}</span>
+          <span>{{ isLoading ? 'Signing in...' : 'Sign In' }}</span>"
         </button>
 
         <!-- Forgot Password Link -->

@@ -1,0 +1,156 @@
+<div class="add-user-dialog" fxLayout="column" fxLayoutGap="24px">
+  
+  <!-- Dialog Header -->
+  <div class="dialog-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <h2 mat-dialog-title>Add New User</h2>
+    <button mat-icon-button (click)="onCancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Dialog Content -->
+  <mat-dialog-content>
+    <form [formGroup]="addUserForm" fxLayout="column" fxLayoutGap="16px">
+      
+      <!-- Progress Bar -->
+      @if (isLoading) {
+        <mat-progress-bar 
+          mode="indeterminate" 
+          color="primary">
+        </mat-progress-bar>
+      }
+
+      <!-- Name Fields -->
+      <div fxLayout="row" fxLayoutGap="16px" fxLayout.lt-sm="column">
+        <mat-form-field appearance="outline" fxFlex="1 1 200px">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" placeholder="Enter first name">
+          @if (isFieldInvalid('firstName')) {
+            <mat-error>{{ getFieldError('firstName') }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="1 1 200px">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" placeholder="Enter last name">
+          @if (isFieldInvalid('lastName')) {
+            <mat-error>{{ getFieldError('lastName') }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <!-- Email Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Enter email address">
+        <mat-icon matSuffix>email</mat-icon>
+        @if (isFieldInvalid('email')) {
+          <mat-error>{{ getFieldError('email') }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Role Selection -->
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          @for (role of userRoles; track role.value) {
+            <mat-option [value]="role.value">{{ role.label }}</mat-option>
+          }
+        </mat-select>
+        <mat-icon matSuffix>admin_panel_settings</mat-icon>
+        @if (isFieldInvalid('role')) {
+          <mat-error>{{ getFieldError('role') }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Password Fields -->
+      <div fxLayout="row" fxLayoutGap="16px" fxLayout.lt-sm="column">
+        <mat-form-field appearance="outline" fxFlex="1 1 200px">
+          <mat-label>Password</mat-label>
+          <input 
+            matInput 
+            [type]="hidePassword ? 'password' : 'text'" 
+            formControlName="password" 
+            placeholder="Enter password">
+          <button 
+            mat-icon-button 
+            matSuffix 
+            (click)="togglePasswordVisibility()" 
+            [attr.aria-label]="'Hide password'" 
+            [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          @if (isFieldInvalid('password')) {
+            <mat-error>{{ getFieldError('password') }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="1 1 200px">
+          <mat-label>Confirm Password</mat-label>
+          <input 
+            matInput 
+            [type]="hideConfirmPassword ? 'password' : 'text'" 
+            formControlName="confirmPassword" 
+            placeholder="Confirm password">
+          <button 
+            mat-icon-button 
+            matSuffix 
+            (click)="toggleConfirmPasswordVisibility()" 
+            [attr.aria-label]="'Hide confirm password'" 
+            [attr.aria-pressed]="hideConfirmPassword">
+            <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          @if (isFieldInvalid('confirmPassword')) {
+            <mat-error>{{ getFieldError('confirmPassword') }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <!-- Additional Fields -->
+      <div fxLayout="row" fxLayoutGap="16px" fxLayout.lt-sm="column">
+        <mat-form-field appearance="outline" fxFlex="1 1 200px">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phone" placeholder="Enter phone number">
+          <mat-icon matSuffix>phone</mat-icon>
+          @if (isFieldInvalid('phone')) {
+            <mat-error>{{ getFieldError('phone') }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="1 1 200px">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="Choose date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <!-- Address Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" placeholder="Enter address" rows="3"></textarea>
+        <mat-icon matSuffix>location_on</mat-icon>
+      </mat-form-field>
+
+    </form>
+  </mat-dialog-content>
+
+  <!-- Dialog Actions -->
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="12px">
+    <button mat-button (click)="onCancel()" [disabled]="isLoading">
+      Cancel
+    </button>
+    <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="onSubmit()" 
+      [disabled]="isLoading || addUserForm.invalid">
+      
+      @if (isLoading) {
+        <mat-progress-spinner diameter="20"></mat-progress-spinner>
+        Adding...
+      }
+    </button>
+  </mat-dialog-actions>
+
+</div>

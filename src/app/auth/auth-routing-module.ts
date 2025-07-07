@@ -5,6 +5,11 @@ import { ResetPassword } from './components/reset-password/reset-password';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     component: Login
   },

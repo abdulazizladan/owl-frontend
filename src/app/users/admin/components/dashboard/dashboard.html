@@ -3,7 +3,7 @@
   <!-- Dashboard Header -->
   <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
     <div>
-      <h1 class="dashboard-title">School Management Dashboard</h1>
+      <h1 class="dashboard-title">Administrative Dashboard</h1>
       <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
     </div>
     <div fxLayout="row" fxLayoutGap="16px">
@@ -18,7 +18,7 @@
   </div>
 
   <!-- User Statistics Cards -->
-  <div class="stats-section" fxLayout="row" fxLayoutGap="24px" fxLayout.lt-md="column">
+  <div class="stats-section" fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="space-between center" fxLayout.lt-md="column">
     
     <!-- Total Users Card -->
     <mat-card class="stat-card total-users" fxFlex="1 1 200px">
@@ -79,7 +79,6 @@
   <!-- Main Content Section -->
   <div class="main-content" fxLayout="row" fxLayoutGap="24px" fxLayout.lt-lg="column">
     
-    <!-- Enrolment Trends
     <div class="trends-section" fxFlex="2 1 600px" fxLayout="column" fxLayoutGap="16px">
       <mat-card class="section-header-card">
         <mat-card-header>
@@ -92,17 +91,17 @@
       </mat-card>
       
       <div class="trends-grid" fxLayout="row" fxLayoutGap="16px" fxLayout.lt-md="column">
-        @for (trend of enrolmentTrends; track trend.term) {
+        @for (trend of [1, 2]; track []) {
           <mat-card class="trend-card" fxFlex="1 1 200px">
             <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px">
-              <div class="trend-term">{{ trend.term }}</div>
-              <div class="trend-students">{{ trend.students }} students</div>
+              <div class="trend-term">up</div>
+              <div class="trend-students">1 students</div>
               <div class="trend-growth" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-                <mat-icon [style.color]="getGrowthColor(trend.growth) === 'green' ? '#4caf50' : '#f44336'">
-                  {{ getGrowthIcon(trend.growth) }}
+                <mat-icon>
+                  growth
                 </mat-icon>
-                <span [style.color]="getGrowthColor(trend.growth) === 'green' ? '#4caf50' : '#f44336'" class="growth-percentage">
-                  {{ trend.growth }}%
+                <span>
+                  75%
                 </span>
               </div>
             </mat-card-content>
@@ -111,7 +110,7 @@
       </div>
     </div>
 
-    Recent Activities -->
+    <!-- Recent Activities -->
     <div class="activities-section" fxFlex="1 1 400px" fxLayout="column" fxLayoutGap="16px">
       <mat-card class="section-header-card">
         <mat-card-header>
@@ -124,21 +123,20 @@
       </mat-card>
       
       <div class="activities-grid" fxLayout="column" fxLayoutGap="12px">
-        <!--@for (activity of recentActivities; track activity.message) {
+        @for (activity of [1, 2, 4]; track []) {
           <mat-card class="activity-card">
             <mat-card-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
               <div class="activity-icon-container" fxLayout="row" fxLayoutAlign="center center">
-                <mat-icon [color]="getActivityColor(activity.type)" class="activity-icon">
-                  {{ getActivityIcon(activity.type) }}
+                <mat-icon  class="activity-icon">person
                 </mat-icon>
               </div>
               <div fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="4px">
-                <div class="activity-message">{{ activity.message }}</div>
-                <div class="activity-time">{{ activity.time }}</div>
+                <div class="activity-message">Emrolled new student</div>
+                <div class="activity-time">04:00pm, Jan 24th, 2025</div>
               </div>
             </mat-card-content>
           </mat-card>
-        }-->
+        }
       </div>
     </div>
   </div>

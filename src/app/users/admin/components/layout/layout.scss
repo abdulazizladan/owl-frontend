@@ -5,12 +5,11 @@
   }
   
   .example-sidenav-content {
-    display: flex;
     height: 100%;
   }
   
   .example-sidenav {
-    padding: 20px;
+    padding: 0px;
     height: 100%;
     width: 240px;
     display: flex;
@@ -20,9 +19,24 @@
         width: 100%;
         aspect-ratio: 1;
         background-color: gray;
+        margin: 0px;
     }
     button {
         width: 100%;
+        border-radius: 0;
+        margin: 0;
+        padding: 12px 20px;
+        text-align: left;
+        justify-content: flex-start;
+        
+        mat-icon {
+          margin-right: 12px;
+        }
+        
+        &.active {
+          background-color: rgba(0, 0, 0, 0.1);
+          color: #1976d2;
+        }
     }
   }
   
@@ -55,3 +69,20 @@
     border-bottom-left-radius: 0 !important;
   }
   
+  /* Remove padding from drawer content */
+  .mat-mdc-drawer-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Ensure buttons extend to full width */
+  .example-sidenav button {
+    width: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .active {
+    background-color: rgb(123, 123, 156);
+    color: white;
+  }

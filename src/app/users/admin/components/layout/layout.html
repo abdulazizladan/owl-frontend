@@ -5,40 +5,55 @@
             <button mat-icon-button color="primary" (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
+            Owl School Management Information System
             <span fxFlex="1 1 auto"></span>
             <button mat-icon-button>
                 <mat-icon>more_vert</mat-icon>
             </button>
+            <mat-menu #menu>
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    Settings
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    Logout
+                </button>
+            </mat-menu>
         </mat-toolbar-row>
     </mat-toolbar>
 
-    <mat-drawer-container class="example-container" autosize fxFlex="1 1 auto">
-        <mat-drawer #drawer opened class="example-sidenav" mode="side" fxLayout="column">
+    <mat-drawer-container class="example-container" autosize fxFlex="1 1 auto" hasBackdrop="false">
+        <mat-drawer #drawer mode="over" opened class="example-sidenav" fxLayout="column">
             <div id="profile">
 
             </div>
-          <button mat-button routerLink="./dashboard">
+          <button mat-button routerLink="./dashboard" routerLinkActive="active">
             <mat-icon>
                 dashboard
             </mat-icon>
             Dashboard
         </button>
-        <button mat-button routerLink="./institution">
+        <button mat-button routerLink="./institution" routerLinkActive="active">
             <mat-icon>business</mat-icon>
             Institution
         </button>
-        <button mat-button routerLink="./users">
+        <button mat-button routerLink="./users" routerLinkActive="active">
             <mat-icon>people</mat-icon>
             Users
         </button>
-        <button mat-button routerLink="./tickets">
+        <button mat-button routerLink="./tickets" routerLinkActive="active">
             <mat-icon>confirmation_number</mat-icon>
             Support tickets
         </button>
         </mat-drawer>
       
         <div class="example-sidenav-content">
-          <router-outlet></router-outlet>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxFlex.lt-md=100% fxFlex.gt-md=1024px>
+                    <router-outlet></router-outlet>
+                </div> 
+            </div>
         </div>
       
       </mat-drawer-container>
