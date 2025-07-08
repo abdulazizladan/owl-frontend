@@ -16,4 +16,10 @@
         </button>
       </div>
     </div>
+
+    @if(store.tickets()) {
+      @for(ticket of store.tickets(); track ticket) {
+        {{ticket.title}}
+      }
+    }
 </div>

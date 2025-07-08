@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { TicketsManagementRoutingModule } from './tickets-management-routing-module';
 import { Summary } from './components/summary/summary';
@@ -27,6 +28,7 @@ import { Summary } from './components/summary/summary';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
     TicketsManagementRoutingModule
   ]
 })

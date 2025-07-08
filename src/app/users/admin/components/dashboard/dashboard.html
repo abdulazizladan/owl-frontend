@@ -17,11 +17,10 @@
     </div>
   </div>
 
-  <!-- User Statistics Cards -->
-  <div class="stats-section" fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="space-between center" fxLayout.lt-md="column">
-    
+  <div fxLayout.lt-sm="column" fxLayoutGap="25px" fxLayoutAlign.gt-sm="center space-between" fxLayout.gt-sm="row">
+
     <!-- Total Users Card -->
-    <mat-card class="stat-card total-users" fxFlex="1 1 200px">
+    <mat-card class="stat-card total-users" fxFlex.gt-md="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
           <div class="stat-number">0</div>
@@ -32,7 +31,7 @@
     </mat-card>
 
     <!-- Students Card -->
-    <mat-card class="stat-card students" fxFlex="1 1 200px">
+    <mat-card class="stat-card students" fxFlex="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
           <div class="stat-number">0</div>
@@ -43,7 +42,7 @@
     </mat-card>
 
     <!-- Staff Card -->
-    <mat-card class="stat-card staff" fxFlex="1 1 200px">
+    <mat-card class="stat-card staff" fxFlex="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
           <div class="stat-number">0</div>
@@ -54,6 +53,55 @@
     </mat-card>
 
     <!-- Guardians Card -->
+    <mat-card class="stat-card guardians" fxFlex="25%">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Guardians</div>
+        </div>
+        <mat-icon class="stat-icon">family_restroom</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <!-- User Statistics Cards
+  <div class="stats-section" fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="space-between center" fxLayout.lt-md="column">
+    
+
+    <mat-card class="stat-card total-users" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Total Users</div>
+        </div>
+        <mat-icon class="stat-icon">people</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card class="stat-card students" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <mat-icon class="stat-icon">school</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card class="stat-card staff" fxFlex="1 1 200px">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Staff</div>
+        </div>
+        <mat-icon class="stat-icon">work</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+
     <mat-card class="stat-card guardians" fxFlex="1 1 200px">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
@@ -64,7 +112,7 @@
       </mat-card-content>
     </mat-card>
 
-    <!-- Admins Card -->
+
     <mat-card class="stat-card admins" fxFlex="1 1 200px">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
@@ -74,13 +122,14 @@
         <mat-icon class="stat-icon">admin_panel_settings</mat-icon>
       </mat-card-content>
     </mat-card>
-  </div>
+  </div> -->
 
   <!-- Main Content Section -->
-  <div class="main-content" fxLayout="row" fxLayoutGap="24px" fxLayout.lt-lg="column">
+  <div class="main-content" fxLayout.lt-sm="column" fxLayout.gt-sm="row" fxLayoutGap="24px" fxLayout.lt-lg="column">
     
-    <div class="trends-section" fxFlex="2 1 600px" fxLayout="column" fxLayoutGap="16px">
+    <div class="trends-section" fxFlex.gt-sm="60%" fxLayout="column" fxLayoutGap="16px">
       <mat-card class="section-header-card">
+        
         <mat-card-header>
           <mat-card-title>
             <mat-icon>trending_up</mat-icon>
@@ -92,7 +141,7 @@
       
       <div class="trends-grid" fxLayout="row" fxLayoutGap="16px" fxLayout.lt-md="column">
         @for (trend of [1, 2]; track []) {
-          <mat-card class="trend-card" fxFlex="1 1 200px">
+          <mat-card class="trend-card" fxFlex="50%">
             <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px">
               <div class="trend-term">up</div>
               <div class="trend-students">1 students</div>
@@ -111,7 +160,7 @@
     </div>
 
     <!-- Recent Activities -->
-    <div class="activities-section" fxFlex="1 1 400px" fxLayout="column" fxLayoutGap="16px">
+    <div class="activities-section" fxFlex.gt-sm="40%" fxLayout="column" fxLayoutGap="16px">
       <mat-card class="section-header-card">
         <mat-card-header>
           <mat-card-title>
@@ -142,16 +191,16 @@
   </div>
 
   <!-- Quick Actions Section -->
-  <div class="quick-actions" fxLayout="row" fxLayoutGap="16px" fxLayout.lt-md="column">
-    <mat-card class="action-card" fxFlex="1 1 200px">
+  <div class="quick-actions" fxLayout="row" fxLayoutGap="25px" fxLAyoutAlign.gt-sm="center space-between" fxLayout.lt-md="column">
+    <mat-card class="action-card" fxFlex="25%">
       <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
         <mat-icon class="action-icon">person_add</mat-icon>
-        <div class="action-title">Add New Student</div>
+        <div class="action-title">Add New Staff</div>
         <button mat-raised-button color="primary">Enrol Student</button>
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="action-card" fxFlex="1 1 200px">
+    <mat-card class="action-card" fxFlex="25%">
       <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
         <mat-icon class="action-icon">assignment</mat-icon>
         <div class="action-title">Manage Classes</div>
@@ -159,7 +208,7 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="action-card" fxFlex="1 1 200px">
+    <mat-card class="action-card" fxFlex="25%">
       <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
         <mat-icon class="action-icon">payment</mat-icon>
         <div class="action-title">Fee Management</div>
@@ -167,7 +216,7 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="action-card" fxFlex="1 1 200px">
+    <mat-card class="action-card" fxFlex="25%">
       <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
         <mat-icon class="action-icon">analytics</mat-icon>
         <div class="action-title">Reports</div>

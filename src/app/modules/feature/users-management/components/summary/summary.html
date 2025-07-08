@@ -34,6 +34,9 @@
       </mat-toolbar-row>
     </mat-toolbar>
 
+    <!-- Progress Bar -->
+    <mat-progress-bar *ngIf="loading()" mode="indeterminate" color="primary"></mat-progress-bar>
+
     <!-- Users Table -->
     <mat-card class="table-card">
       <mat-card-content>

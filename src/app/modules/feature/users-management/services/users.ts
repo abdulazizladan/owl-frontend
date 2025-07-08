@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { env } from '../../../../../environment/environment';
-import { User } from '../models/user.model';
+import { UserModel } from '../models/user.model';
 import { firstValueFrom, map } from 'rxjs';
 
 @Injectable({
@@ -13,30 +13,60 @@ export class Users {
 
   private baseUrl = env.baseUrl;
 
-  getUsers(): Promise<User[]> {
+
+  /**
+   * returns array of users
+   */
+  getUsers(): Promise<UserModel[]> {
+    // This will trigger the store to load users and manage loading state
     return firstValueFrom(
-      this.http.get<User[]>(`${this.baseUrl}`).pipe(
+      this.http.get<UserModel[]>(`${this.baseUrl}/users`).pipe(
         map(response => response)
-      )
-    )
+    ))
   }
 
-  getUser( id: string ) {
-    return this.http.get(`${this.baseUrl}/${id}`).pipe(
-
-    )
+  /**
+   * 
+   * @param id 
+   * @returns 
+   */
+  getUser( id: string ): Promise<UserModel> {
+    return firstValueFrom(
+      this.http.get<UserModel>(`${this.baseUrl}/${id}`).pipe(
+        map(response => response)
+    ))
   }
 
-  addUser( user: User ) {
-    return this.http.post(`${this.baseUrl}`, user).pipe(
-
-    )
+  /**
+   * 
+   * @param user 
+   * @returns 
+   */
+  addUser( user: UserModel ): Promise<UserModel> {
+    return firstValueFrom(
+      this.http.post<UserModel>(`${this.baseUrl}`, user).pipe(
+        map(response => response)
+    ))
   }
 
-  updateUser( id: string, user: User) {
-    return this.http.put(`${this.baseUrl}/${id}`, user).pipe(
-      
-    )
+  /**
+   * 
+   * @param id 
+   * @param user 
+   * @returns 
+   */
+  updateUser( id: string, user: UserModel): Promise<UserModel> {
+    return firstValueFrom(
+      this.http.put<UserModel>(`${this.baseUrl}/${id}`, user).pipe(
+        map(response => response)
+    ))
   }
 
+  /**
+   * 
+   * @param id 
+   */
+  toggleUserStatus(id: string) {
+    //return this.store.toggleUserStatus(id);
+  }
 }

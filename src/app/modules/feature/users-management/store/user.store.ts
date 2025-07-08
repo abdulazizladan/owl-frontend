@@ -1,13 +1,13 @@
 import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
 import { Users } from '../services/users';
 import { inject } from '@angular/core'
-import { User } from "../models/user.model"
+import { UserModel } from "../models/user.model"
 
 interface UserState {
-    users: User[];
-    selectedUser: User | null;
+    users: UserModel[];
+    selectedUser: UserModel | null;
     loading: boolean;
-    error: string | null
+    error: string | null;
 }
 
 export const initialState: UserState = {
@@ -22,75 +22,90 @@ export const UsersStore = signalStore(
     withState(initialState),
     withMethods((store, usersService = inject(Users)) => ({
         async loadUsers() {
-            patchState(store, {
-                loading: true, 
-                error: null
-            });
-            try{
+            patchState(store, { loading: true, error: null });
+            try {
                 const users = await usersService.getUsers();
-                patchState(store, {users, loading: false})
-            }catch(error) {
+                //patchState(store, { users, loading: false });
+            } catch (error) {
                 patchState(store, {
-                    loading: false, 
+                    loading: false,
                     error: 'Failed to load users. Try again later.'
-                })
+                });
             }
         },
-        asyncSelectUser(id: string) {
-            patchState(store, {
-                loading: true,
-                error: null
-            });
-            try{
-
-            }catch(error) {
+        async selectUser(id: string) {
+            patchState(store, { loading: true, error: null });
+            try {
+                const user = await usersService.getUser(id);
+                patchState(store, { selectedUser: user, loading: false });
+            } catch (error) {
                 patchState(store, {
                     loading: false,
-                    error: "Ubale to complete action. Check your connection and try again."
-                })
+                    error: "Unable to complete action. Check your connection and try again."
+                });
             }
         },
-        async addUser(user: User) {
-            patchState(store, {
-                loading: true,
-                error: null
-            });
-            try{
-
-            }catch(error) {
+        async addUser(user: UserModel) {
+            patchState(store, { loading: true, error: null });
+            try {
+                const newUser = await usersService.addUser(user);
+                patchState(store, state => ({
+                    users: [newUser, ...state.users],
+                    loading: false
+                }));
+            } catch (error) {
                 patchState(store, {
                     loading: false,
-                    error: "Ubale to complete action. Check your connection and try again."
-                })
+                    error: "Unable to complete action. Check your connection and try again."
+                });
             }
         },
-        async updateUser(id: string, user: User) {
-            patchState(store, {
-                loading: true,
-                error: null
-            });
-            try{
-
-            }catch(error) {
+        async updateUser(id: string, user: UserModel) {
+            patchState(store, { loading: true, error: null });
+            try {
+                const updatedUser = await usersService.updateUser(id, user);
+                patchState(store, {
+                    /**users: state.users.map(
+                        u => u.id === id ? updatedUser : u
+                    ),**/
+                    loading: false
+                });
+            } catch (error) {
                 patchState(store, {
                     loading: false,
-                    error: "Ubale to complete action. Check your connection and try again."
-                })
+                    error: "Unable to complete action. Check your connection and try again."
+                });
             }
         },
-        async suspendUser(id: string) {
-            patchState(store, {
-                loading: true,
-                error: null
-            });
-            try{
-
-            }catch(error) {
+        /**async suspendUser(id: string) {
+            patchState(store, { loading: true, error: null });
+            try {
+                const updatedUser = await usersService.suspendUser(id);
+                patchState(store, state => ({
+                    users: state.users.map(u => u.id === id ? updatedUser : u),
+                    loading: false
+                }));
+            } catch (error) {
                 patchState(store, {
                     loading: false,
-                    error: "Ubale to complete action. Check your connection and try again."
-                })
+                    error: "Unable to complete action. Check your connection and try again."
+                });
             }
-        }
+        }, **/
+        /**async toggleUserStatus(id: string) {
+            patchState(store, { loading: true, error: null });
+            try {
+                const updatedUser = await usersService.toggleUserStatus(id);
+                patchState(store, {
+                    users: state.users.map(u => u.id === id ? updatedUser : u),
+                    loading: false
+                });
+            } catch (error) {
+                patchState(store, {
+                    loading: false,
+                    error: "Unable to complete action. Check your connection and try again."
+                });
+            }
+        }**/
     }))
 )

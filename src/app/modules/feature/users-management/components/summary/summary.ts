@@ -1,9 +1,11 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, computed, signal } from '@angular/core';
+import { Users } from '../../services/users';
 import { MatDialog } from '@angular/material/dialog';
+import { AddUser } from '../add-user/add-user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { AddUser } from '../add-user/add-user';
+import { UserModel } from '../../models/user.model';
 
 export interface User {
   id: string;
@@ -22,7 +24,6 @@ export interface User {
   styleUrl: './summary.scss'
 })
 export class Summary implements OnInit {
-
   private dialog = inject(MatDialog);
 
   // Table properties
@@ -31,6 +32,8 @@ export class Summary implements OnInit {
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  loading = signal(false);
 
   // Sample data
   users: User[] = [
@@ -110,6 +113,10 @@ export class Summary implements OnInit {
 
   ngOnInit(): void {
     this.loadUsers();
+    //this.usersService.store.state.subscribe(state => {
+    //  this.dataSource.data = state.users;
+    //  this.loading.set(state.loading);
+    //});
   }
 
   ngAfterViewInit(): void {
@@ -118,10 +125,7 @@ export class Summary implements OnInit {
   }
 
   loadUsers(): void {
-    // Simulate API call
-    setTimeout(() => {
-      this.dataSource.data = this.users;
-    }, 1000);
+    //this.usersService.getUsers();
   }
 
   openAddUserDialog() {
@@ -135,19 +139,7 @@ export class Summary implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('User added:', result);
-        // Add the new user to the table
-        const newUser: User = {
-          id: (this.users.length + 1).toString(),
-          fullName: `${result.firstName} ${result.lastName}`,
-          role: result.role,
-          status: 'active',
-          email: result.email,
-          phone: result.phone,
-          createdAt: new Date()
-        };
-        this.users.unshift(newUser);
-        this.dataSource.data = [...this.users];
+        //this.usersService.addUser(result);
       }
     });
   }
