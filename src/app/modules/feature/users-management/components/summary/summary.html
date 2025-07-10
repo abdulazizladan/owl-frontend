@@ -81,12 +81,16 @@
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        @for (row of filteredUsers(); track row.id) {
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        }
       </table>
-      <div *ngIf="!filteredUsers().length" class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
-        <mat-icon>people_outline</mat-icon>
-        <span>No users found.</span>
-      </div>
+      @if(!filteredUsers().length) {
+        <div class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+          <mat-icon>people_outline</mat-icon>
+          <span>No users found.</span>
+        </div>
+      }
     </div>
   </mat-card-content>
 </mat-card>

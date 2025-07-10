@@ -65,12 +65,16 @@
             </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="['title', 'status', 'actions']"></tr>
-          <tr mat-row *matRowDef="let row; columns: ['title', 'status', 'actions'];"></tr>
+          @for (row of filteredTickets(); track row.title) {
+            <tr mat-row *matRowDef="let row; columns: ['title', 'status', 'actions'];"></tr>
+          }
         </table>
-        <div *ngIf="!filteredTickets().length" class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
-          <mat-icon>confirmation_number</mat-icon>
-          <span>No tickets found.</span>
-        </div>
+        @if(!filteredTickets().length) {
+          <div class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+            <mat-icon>confirmation_number</mat-icon>
+            <span>No tickets found.</span>
+          </div>
+        }
       </div>
     </mat-card-content>
   </mat-card>
