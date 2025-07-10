@@ -141,10 +141,10 @@
       Cancel
     </button>
     <button 
-      mat-raised-button 
+      mat-flat-button 
       color="primary" 
       (click)="onSubmit()" 
-      [disabled]="isLoading || addUserForm.invalid">
+      [disabled]="isLoading || addUserForm.invalid">Add user
       
       @if (isLoading) {
         <mat-progress-spinner diameter="20"></mat-progress-spinner>

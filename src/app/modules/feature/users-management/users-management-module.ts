@@ -43,11 +43,13 @@ import { UsersManagementRoutingModule } from './users-management-routing-module'
 // Components
 import { Summary } from './components/summary/summary';
 import { AddUser } from './components/add-user/add-user';
+import { UserDetails } from './components/user-details/user-details';
 
 @NgModule({
   declarations: [
     Summary,
-    AddUser
+    AddUser,
+    UserDetails
   ],
   imports: [
     // Angular Core Modules

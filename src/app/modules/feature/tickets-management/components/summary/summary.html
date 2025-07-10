@@ -1,25 +1,77 @@
 <div class="dashboard-container" fxLayout="column" fxLayoutGap="24px">
-  
-    <!-- Dashboard Header -->
-    <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
-      <div>
-        <h1 class="dashboard-title">Tickets Summary</h1>
-        <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
-      </div>
-      <div fxLayout="row" fxLayoutGap="16px">
-        <button mat-raised-button color="primary">
-          <mat-icon>refresh</mat-icon>
-          Refresh Data
-        </button>
-        <button mat-icon-button>
-          <mat-icon>notifications</mat-icon>
-        </button>
-      </div>
+  <!-- Dashboard Header -->
+  <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <h1 class="dashboard-title">Tickets Summary</h1>
+      <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
     </div>
+    <div fxLayout="row" fxLayoutGap="16px">
+      <button mat-raised-button color="primary" (click)="store.loadTickets()">
+        <mat-icon>refresh</mat-icon>
+        Refresh Data
+      </button>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+    </div>
+  </div>
 
-    @if(store.tickets()) {
-      @for(ticket of store.tickets(); track ticket) {
-        {{ticket.title}}
-      }
-    }
+  <mat-toolbar class="table-toolbar">
+    <mat-toolbar-row fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxFlex="1 1 auto" fxLayoutAlign="start center" fxLayoutGap="16px">
+        <mat-form-field fxFlex="1 1 auto" appearance="fill" class="search-field">
+          <mat-label>Search tickets</mat-label>
+          <input matInput (keyup)="onFilter($event)" placeholder="Search by title or status">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  @if(store.loading() === true) {
+    <mat-progress-bar mode="query" color="primary"></mat-progress-bar>
+  }
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="filteredTickets()" class="tickets-table">
+          <!-- Title Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let ticket">{{ ticket.title }}</td>
+          </ng-container>
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let ticket">{{ ticket.status }}</td>
+          </ng-container>
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let ticket">
+              <button mat-icon-button color="primary" (click)="viewTicket(ticket)" matTooltip="View Ticket">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="updateTicket(ticket)" matTooltip="Update Ticket">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="replyToTicket(ticket)" matTooltip="Reply">
+                <mat-icon>reply</mat-icon>
+              </button>
+              <button mat-icon-button [color]="ticket.status === 'active' ? 'warn' : 'primary'" (click)="toggleStatus(ticket)" matTooltip="Toggle Status">
+                <mat-icon>{{ ticket.status === 'active' ? 'block' : 'check_circle' }}</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['title', 'status', 'actions']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['title', 'status', 'actions'];"></tr>
+        </table>
+        <div *ngIf="!filteredTickets().length" class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+          <mat-icon>confirmation_number</mat-icon>
+          <span>No tickets found.</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class Login implements OnInit {
   
-  userLoginForm: FormGroup;
+  userLoginForm!: FormGroup;
   isLoading = false;
   hidePassword = true;
 

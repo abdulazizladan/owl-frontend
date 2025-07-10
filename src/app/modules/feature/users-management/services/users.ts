@@ -7,7 +7,7 @@ import { firstValueFrom, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class Users {
+export class UsersService {
 
   private http = inject(HttpClient);
 
@@ -17,7 +17,7 @@ export class Users {
   /**
    * returns array of users
    */
-  getUsers(): Promise<UserModel[]> {
+  async getUsers(): Promise<UserModel[]> {
     // This will trigger the store to load users and manage loading state
     return firstValueFrom(
       this.http.get<UserModel[]>(`${this.baseUrl}/users`).pipe(
@@ -30,7 +30,7 @@ export class Users {
    * @param id 
    * @returns 
    */
-  getUser( id: string ): Promise<UserModel> {
+  async getUser( id: string ): Promise<UserModel> {
     return firstValueFrom(
       this.http.get<UserModel>(`${this.baseUrl}/${id}`).pipe(
         map(response => response)
@@ -42,7 +42,7 @@ export class Users {
    * @param user 
    * @returns 
    */
-  addUser( user: UserModel ): Promise<UserModel> {
+  async addUser( user: UserModel ): Promise<UserModel> {
     return firstValueFrom(
       this.http.post<UserModel>(`${this.baseUrl}`, user).pipe(
         map(response => response)
@@ -55,7 +55,7 @@ export class Users {
    * @param user 
    * @returns 
    */
-  updateUser( id: string, user: UserModel): Promise<UserModel> {
+  async updateUser( id: string, user: UserModel): Promise<UserModel> {
     return firstValueFrom(
       this.http.put<UserModel>(`${this.baseUrl}/${id}`, user).pipe(
         map(response => response)
@@ -66,7 +66,10 @@ export class Users {
    * 
    * @param id 
    */
-  toggleUserStatus(id: string) {
-    //return this.store.toggleUserStatus(id);
+  async toggleUserStatus(id: string) {
+    return firstValueFrom(
+      this.http.put<UserModel>(`${this.baseUrl}/${id}/status`, {}).pipe(
+        map(response => response)
+    ))
   }
 }

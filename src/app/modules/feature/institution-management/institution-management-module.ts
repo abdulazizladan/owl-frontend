@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatListModule } from '@angular/material/list';
 
 import { InstitutionManagementRoutingModule } from './institution-management-routing-module';
 import { Summary } from './components/summary/summary';
@@ -27,6 +29,8 @@ import { Summary } from './components/summary/summary';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressBarModule,
+    MatListModule,
     InstitutionManagementRoutingModule
   ]
 })

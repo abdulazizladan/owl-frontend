@@ -1,26 +1,107 @@
-<div class="dashboard-container" fxLayout="column" fxLayoutGap="24px">
-  
-    <!-- Dashboard Header -->
-    <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
-      <div>
-        <h1 class="dashboard-title">Institution Details</h1>
-        <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
+<div class="dashboard-container" fxLayout="column" fxLayoutGap="32px">
+  <!-- Dashboard Header -->
+  <mat-card class="dashboard-header-card" style="padding: 24px;">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="32px">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+        <img *ngIf="institution()?.logoUrl" [src]="institution()?.logoUrl" alt="Logo" style="height: 72px; width: 72px; object-fit: contain; border-radius: 12px; background: #fff; border: 1px solid #eee;">
+        <div>
+          <h1 class="dashboard-title" style="margin: 0; font-size: 2.2rem; font-weight: 700;">{{ institution()?.name || 'Institution Details' }}</h1>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px" style="margin-top: 4px;">
+            <mat-icon color="primary">school</mat-icon>
+            <span class="dashboard-subtitle" style="font-size: 1.1rem;">Code: {{ institution()?.code }}</span>
+          </div>
+        </div>
       </div>
       <div fxLayout="row" fxLayoutGap="16px">
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" (click)="refresh()">
           <mat-icon>refresh</mat-icon>
-          Refresh Data
+          Refresh
         </button>
         <button mat-icon-button>
           <mat-icon>notifications</mat-icon>
         </button>
       </div>
     </div>
+  </mat-card>
 
-    <ul>
-        <li>Institution name</li>
-        <li>Campuses</li>
-        <li>Buildings</li>
-        <li>Departments/units</li>
-    </ul>
+  @if(loading()) {
+    <mat-progress-bar mode="query" color="primary" style="margin-bottom: 16px;"></mat-progress-bar>
+  }
+  @if(error()) {
+    <mat-card color="warn" style="margin: 16px 0;">
+      <mat-card-content>
+        <mat-icon color="warn">error</mat-icon> {{ error() }}
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @if(institution()) {
+    <div fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="start stretch" style="flex-wrap: wrap;">
+      <!-- Campuses -->
+      <mat-card fxFlex="100" style="min-width: 320px; width: 100%;">
+        <mat-card-header>
+          <mat-icon mat-card-avatar color="primary">location_city</mat-icon>
+          <mat-card-title>Campuses</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let campus of institution()?.campuses">
+              <mat-icon matListIcon color="accent">apartment</mat-icon>
+              <div matLine><b>{{ campus.name }}</b></div>
+              <div matLine>
+                <mat-icon color="primary" style="font-size: 18px; vertical-align: middle;">place</mat-icon>
+                <span style="margin-left: 4px;">{{ campus.address }}</span>
+              </div>
+              <div matLine>
+                <mat-icon color="primary" style="font-size: 18px; vertical-align: middle;">business</mat-icon>
+                <span style="margin-left: 4px;">Buildings: {{ campus.numberOfBuildings }}</span>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <!-- Stats -->
+      <mat-card fxFlex="30" style="min-width: 260px;">
+        <mat-card-header>
+          <mat-icon mat-card-avatar color="primary">bar_chart</mat-icon>
+          <mat-card-title>Stats</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="margin-bottom: 12px;">
+            <mat-icon color="accent">domain</mat-icon>
+            <span>Total Buildings: <b>{{ institution()?.totalBuildings }}</b></span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <mat-icon color="accent">groups</mat-icon>
+            <span>Total Staff: <b>{{ institution()?.totalStaff }}</b></span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <!-- Staff Distribution -->
+      <mat-card fxFlex="30" style="min-width: 260px;">
+        <mat-card-header>
+          <mat-icon mat-card-avatar color="primary">people</mat-icon>
+          <mat-card-title>Staff Distribution</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="margin-bottom: 10px;">
+            <mat-icon color="accent">school</mat-icon>
+            <span>Teachers: <b>{{ institution()?.staffDistribution?.teachers }}</b></span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="margin-bottom: 10px;">
+            <mat-icon color="accent">cleaning_services</mat-icon>
+            <span>Cleaners: <b>{{ institution()?.staffDistribution?.cleaners }}</b></span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="margin-bottom: 10px;">
+            <mat-icon color="accent">meeting_room</mat-icon>
+            <span>Porters: <b>{{ institution()?.staffDistribution?.porters }}</b></span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <mat-icon color="accent">park</mat-icon>
+            <span>Gardeners: <b>{{ institution()?.staffDistribution?.gardeners }}</b></span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
 </div>
