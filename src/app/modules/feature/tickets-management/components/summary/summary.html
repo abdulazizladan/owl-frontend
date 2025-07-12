@@ -3,7 +3,7 @@
   <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
     <div>
       <h1 class="dashboard-title">Tickets Summary</h1>
-      <p class="dashboard-subtitle">Welcome back! Here's what's happening today.</p>
+      <p class="dashboard-subtitle">Manage all support tickets in the system</p>
     </div>
     <div fxLayout="row" fxLayoutGap="16px">
       <button mat-raised-button color="primary" (click)="store.loadTickets()">
@@ -65,9 +65,7 @@
             </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="['title', 'status', 'actions']"></tr>
-          @for (row of filteredTickets(); track row.title) {
-            <tr mat-row *matRowDef="let row; columns: ['title', 'status', 'actions'];"></tr>
-          }
+          <tr mat-row *matRowDef="let row; columns: ['title', 'status', 'actions'];" [routerLink]="row.id" style="cursor: pointer;"></tr>
         </table>
         @if(!filteredTickets().length) {
           <div class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">

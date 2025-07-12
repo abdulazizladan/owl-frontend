@@ -1,1 +1,65 @@
-<p>ticket-details works!</p>
+<div class="ticket-details-container" fxLayout="column" fxLayoutGap="32px">
+  <!-- Ticket Info Card -->
+  <mat-card class="ticket-info-card" style="padding: 32px;">
+    <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+      <mat-icon color="primary">confirmation_number</mat-icon>
+      <span>Support Ticket</span>
+    </mat-card-title>
+    <mat-card-content>
+      <div fxLayout="column" fxLayoutGap="12px">
+        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+          <mat-icon color="accent">calendar_today</mat-icon>
+          <span>Opened: Jan 25, 2024, 10:15 AM</span>
+        </div>
+        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+          <mat-icon color="accent">title</mat-icon>
+          <span><b>Cannot login to portal</b></span>
+        </div>
+        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start start">
+          <mat-icon color="accent">description</mat-icon>
+          <span style="max-width: 600px;">I have been unable to login to the school portal since yesterday. It keeps saying 'invalid credentials' even though my details are correct.</span>
+        </div>
+        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+          <mat-icon color="primary">info</mat-icon>
+          <mat-chip color="warn" selected>Status: Open</mat-chip>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Replies Section -->
+  <mat-card class="replies-card" style="padding: 24px;">
+    <mat-card-title>Replies</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon color="primary">person</mat-icon>
+          <span matLine>Admin: We are looking into this issue.</span>
+          <span matLine>Jan 25, 2024, 11:00 AM</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon color="accent">person</mat-icon>
+          <span matLine>User: Thank you for the quick response.</span>
+          <span matLine>Jan 25, 2024, 11:05 AM</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Admin Response Section (if open) -->
+  <mat-card class="admin-response-card" style="padding: 24px;" *ngIf="true"> <!-- Replace with ticket.status === 'open' in real app -->
+    <mat-card-title>Post a Response</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Type your response...</mat-label>
+        <textarea matInput rows="3"></textarea>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="end center" style="margin-top: 12px;">
+        <button mat-raised-button color="primary">
+          <mat-icon>send</mat-icon>
+          Send Response
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

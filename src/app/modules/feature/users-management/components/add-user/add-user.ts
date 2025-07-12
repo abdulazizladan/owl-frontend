@@ -1,6 +1,11 @@
+// @ts-ignore
+declare module 'uuid';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UsersStore } from '../../store/user.store';
+import { inject } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-user',
@@ -21,6 +26,8 @@ export class AddUser implements OnInit {
     { value: 'student', label: 'Student' },
     { value: 'guardian', label: 'Guardian' }
   ];
+
+  public usersStore = inject(UsersStore);
 
   constructor(
     private fb: FormBuilder,
@@ -57,13 +64,23 @@ export class AddUser implements OnInit {
   onSubmit(): void {
     if (this.addUserForm.valid) {
       this.isLoading = true;
-      
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Add user form submitted:', this.addUserForm.value);
+      const formValue = this.addUserForm.value;
+      const newUser = {
+        id: uuidv4(),
+        firstName: formValue.firstName,
+        middleName: formValue.middleName || '',
+        lastName: formValue.lastName,
+        role: formValue.role,
+        status: 'Active' as 'Active',
+        email: formValue.email,
+        phone: formValue.phone || '',
+        address: formValue.address || '',
+        createdAt: new Date(),
+      };
+      this.usersStore.addUser(newUser).then(() => {
         this.isLoading = false;
-        this.dialogRef.close(this.addUserForm.value);
-      }, 1500);
+        this.dialogRef.close(newUser);
+      });
     } else {
       this.markFormGroupTouched();
     }

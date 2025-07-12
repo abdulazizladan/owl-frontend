@@ -11,10 +11,10 @@ interface TicketsState {
 
 export const initialState: TicketsState = {
     tickets: [
-        { title: 'Cannot login to portal', status: 'active' },
-        { title: 'Payment not reflecting', status: 'resolved' },
-        { title: 'Feature request: Dark mode', status: 'active' },
-        { title: 'Bug: Error on dashboard', status: 'closed' }
+        { id: '1', title: 'Cannot login to portal', status: 'active' },
+        { id: '2', title: 'Payment not reflecting', status: 'resolved' },
+        { id: '3', title: 'Feature request: Dark mode', status: 'active' },
+        { id: '4', title: 'Bug: Error on dashboard', status: 'closed' }
     ],
     loading: false,
     error: null

@@ -14,11 +14,16 @@ import { MatListModule } from '@angular/material/list';
 
 import { InstitutionManagementRoutingModule } from './institution-management-routing-module';
 import { Summary } from './components/summary/summary';
+import { CampusDetails } from './components/campus-details/campus-details';
+import { AddCampus } from './components/add-campus/add-campus';
+import { MatCalendarHeader } from "@angular/material/datepicker";
 
 
 @NgModule({
   declarations: [
-    Summary
+    Summary,
+    CampusDetails,
+    AddCampus
   ],
   imports: [
     CommonModule,
@@ -31,7 +36,8 @@ import { Summary } from './components/summary/summary';
     MatIconModule,
     MatProgressBarModule,
     MatListModule,
-    InstitutionManagementRoutingModule
-  ]
+    InstitutionManagementRoutingModule,
+    MatCalendarHeader
+]
 })
 export class InstitutionManagementModule { }

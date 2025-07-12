@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 import { TicketsManagementRoutingModule } from './tickets-management-routing-module';
 import { Summary } from './components/summary/summary';
@@ -37,6 +39,8 @@ import { TicketDetails } from './components/ticket-details/ticket-details';
     MatInputModule,
     MatProgressBarModule,
     MatTableModule,
+    MatChipsModule,
+    MatListModule,
     TicketsManagementRoutingModule
   ]
 })

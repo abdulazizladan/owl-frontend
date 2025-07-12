@@ -1,1 +1,88 @@
-<p>user-details works!</p>
+<div class="user-details-container" fxLayout="column" fxLayoutGap="32px">
+  <!-- User Profile Card -->
+  <mat-card class="profile-card" style="padding: 32px;">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="32px">
+      <mat-icon style="font-size: 64px; background: #e3e3e3; border-radius: 50%; padding: 16px;">person</mat-icon>
+      <div fxLayout="column" fxLayoutGap="8px">
+        <h2 style="margin: 0;">Alice Johnson</h2>
+        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+          <mat-chip color="primary" selected>Status: Active</mat-chip>
+          <mat-chip color="accent">Designation: Admin</mat-chip>
+        </div>
+        <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
+          <mat-icon color="primary">visibility</mat-icon>
+          <span>Last seen: 2 hours ago</span>
+        </div>
+      </div>
+      <span fxFlex></span>
+      <button mat-raised-button color="warn" style="height: 40px;" matTooltip="Reset this user's password">
+        <mat-icon>lock_reset</mat-icon>
+        Reset Password
+      </button>
+    </div>
+  </mat-card>
+
+  <!-- Contact Information -->
+  <mat-card class="contact-card" style="padding: 24px;">
+    <mat-card-title>Contact Information</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon color="primary">email</mat-icon>
+          <span matLine>alice.johnson&#64;example.com</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon color="primary">phone</mat-icon>
+          <span matLine>+234 801 234 5678</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon color="primary">location_on</mat-icon>
+          <span matLine>123 Main St, Lagos, Nigeria</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Recent Activity -->
+  <mat-card class="activity-card" style="padding: 24px;">
+    <mat-card-title>Recent Activity</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon color="accent">login</mat-icon>
+          <span matLine>Logged in</span>
+          <span matLine>Today, 09:15 AM</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon color="accent">edit</mat-icon>
+          <span matLine>Updated profile information</span>
+          <span matLine>Yesterday, 04:22 PM</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon color="accent">logout</mat-icon>
+          <span matLine>Logged out</span>
+          <span matLine>Yesterday, 04:30 PM</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Support Tickets -->
+  <mat-card class="tickets-card" style="padding: 24px;">
+    <mat-card-title>Support Tickets</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon color="warn">confirmation_number</mat-icon>
+          <span matLine>Cannot login to portal</span>
+          <span matLine>Status: Open</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon color="warn">confirmation_number</mat-icon>
+          <span matLine>Payment not reflecting</span>
+          <span matLine>Status: Resolved</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
