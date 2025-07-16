@@ -1,0 +1,83 @@
+Admin Modules
+User Management: Create, edit, suspend, and delete accounts for all user types (staff, guardians, students). Assign roles and permissions.
+
+System Configuration: Manage school-wide settings like academic years, terms, classes, subjects, grading scales, and school holidays.
+
+Support Ticket Management: View, assign, track, and resolve support tickets submitted by other users.
+
+Announcements & Communication: Create and disseminate school-wide announcements, newsletters, and emergency alerts.
+
+Reporting & Analytics: Generate reports on student attendance, academic performance trends, staff activity, and system usage.
+
+Audit Log: Track all significant actions performed within the system for security and accountability.
+
+Staff Modules
+This category encompasses teaching staff, nurses, doctors, and porters, with specialized modules for each.
+
+General Staff Modules
+Personal Profile Management: View and update personal information, contact details, and employment information.
+
+Internal Communication: Access internal messaging system for staff-to-staff or staff-to-admin communication.
+
+School Calendar: View school events, holidays, and deadlines relevant to staff.
+
+Teaching Staff Modules 🧑‍🏫
+Class & Subject Management: Access assigned classes and subjects.
+
+Student Information Access: View profiles, contact details, and guardian information for their students.
+
+Attendance Tracking: Mark student attendance for classes or school days.
+
+Gradebook & Assessment: Enter and manage grades, assignments, and assessment results for students.
+
+Lesson Planning: Create and manage lesson plans.
+
+Communication with Guardians: Send messages, share progress reports, and schedule meetings with guardians.
+
+Timetable View: View their teaching timetable.
+
+Nurse/Doctor Modules 🩺
+Student Medical Records: Securely access and update student medical histories, allergies, immunizations, and ongoing conditions.
+
+Medication Administration Log: Record dispensed medications and treatment details.
+
+Incident Reporting: Document health-related incidents, accidents, and emergencies.
+
+Medical Appointments Scheduling: Manage appointments for student health checks or consultations.
+
+Porter Modules 👷‍♂️
+Facility Maintenance Requests: View and update the status of maintenance tasks or repair requests.
+
+Logistics & Inventory: Track school assets, supplies, and equipment.
+
+Event Setup/Takedown: Receive and manage tasks related to setting up or taking down for school events.
+
+Guardian Modules
+Student Profile View: Access their child's academic progress, attendance records, and personal information.
+
+Communication with Staff: Send messages to teachers and other relevant school staff.
+
+Fee Management: View outstanding fees, payment history, and make online payments (if integrated).
+
+School Announcements & Calendar: Receive school-wide announcements and view the school calendar.
+
+Consent Forms: Digitally sign and submit consent forms for excursions, medical treatments, etc.
+
+Report Card Access: Download and view digital report cards.
+
+Support Ticket Submission: Submit support requests or queries to the school administration.
+
+Student Modules
+Personal Timetable: View their class schedule and daily activities.
+
+Grades & Performance: Access their grades, assignment feedback, and academic progress.
+
+Attendance View: Check their attendance records.
+
+Assignments & Homework: View assigned homework and upcoming deadlines.
+
+Announcements & Events: See school announcements and upcoming events.
+
+Learning Resources: Access shared class materials, notes, and resources.
+
+Internal Messaging: (Optional, with strict moderation) Communicate with teachers or classmates.

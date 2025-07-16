@@ -21,7 +21,7 @@
     <mat-toolbar class="table-toolbar">
       <mat-toolbar-row fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="space-between center">
         <div fxLayout="row" fxFlex="1 1 auto" fxLayoutAlign="start center" fxLayoutGap="16px">
-          <mat-form-field fxFlex="1 1 auto" appearance="fill" class="search-field">
+          <mat-form-field fxFlex="1 1 auto" appearance="outline" class="search-field">
             <mat-label>Search users</mat-label>
             <input matInput (keyup)="onFilter($event)" placeholder="Search by name, role, or status">
             <mat-icon matSuffix>search</mat-icon>

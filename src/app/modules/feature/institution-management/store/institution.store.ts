@@ -37,7 +37,7 @@ export const institutionStore = signalStore(
     withMethods((store) => {
         const institutionService = inject(Institution);
         return {
-            async loadInstitution() {
+        async loadInstitution() {
                 patchState(store, { loading: true, error: null });
                 try {
                     // For demo, just set a dummy institution

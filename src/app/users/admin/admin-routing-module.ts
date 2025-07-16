@@ -26,6 +26,18 @@ const routes: Routes = [
         loadChildren: () => import('../../modules/feature/users-management/users-management-module').then(module => module.UsersManagementModule)
       },
       {
+        path: 'calendar',
+        loadChildren: () => import('../../modules/feature/calendar-management/calendar-management-module').then(module => module.CalendarManagementModule)
+      },
+      {
+        path: 'fees',
+        loadChildren: () => import('../../modules/feature/fees-management/fees-management-module').then(module => module.FeesManagementModule)
+      },
+      {
+        path: 'announcements',
+        loadChildren: () => import('../../modules/feature/announcements-management/announcements-management-module').then(module => module.AnnouncementsManagementModule)
+      },
+      {
         path: 'tickets',
         loadChildren: () => import('../../modules/feature/tickets-management/tickets-management-module').then(module => module.TicketsManagementModule)
       },

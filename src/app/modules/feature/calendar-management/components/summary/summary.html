@@ -1,0 +1,25 @@
+<div class="calendar-summary-container">
+  <mat-card class="term-card">
+    <h2>Academic Terms</h2>
+    <div class="terms-list">
+      <div *ngFor="let term of academicTerms" [class.current]="term.current">
+        <strong>{{ term.name }}</strong>
+        <span>{{ term.start }} - {{ term.end }}</span>
+        <span *ngIf="term.current" class="current-label">Current Term</span>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="calendar-card">
+    <h2>School Calendar</h2>
+    <!--<mat-calendar [selected]="today" [dateClass]="dateClass"></mat-calendar>-->
+    <div class="holidays-list">
+      <h3>Holidays</h3>
+      <ul>
+        <li *ngFor="let holiday of holidays">
+          <strong>{{ holiday.name }}</strong>: {{ holiday.date | date:'fullDate' }}
+        </li>
+      </ul>
+    </div>
+  </mat-card>
+</div>

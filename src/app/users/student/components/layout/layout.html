@@ -1,0 +1,67 @@
+<div style="min-height: 100%;" fxLayout="column">
+    
+    <mat-toolbar color="primary" class="mat-elevation-z5">
+        <mat-toolbar-row fxLayout="row">
+            <button mat-icon-button color="primary" (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            Owl SIMS - Student
+            <span fxFlex="1 1 auto"></span>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    Settings
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    Logout
+                </button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-drawer-container class="example-container" autosize fxFlex="1 1 auto" hasBackdrop="false">
+        <mat-drawer #drawer mode="over" opened class="example-sidenav" fxLayout="column">
+            <div id="profile">
+
+            </div>
+          <button mat-button routerLink="./dashboard" routerLinkActive="active">
+            <mat-icon>
+                dashboard
+            </mat-icon>
+            Dashboard
+        </button>
+        <button mat-butotn>
+            <mat-icon>
+                calendar
+            </mat-icon>
+            My wards
+        </button>
+        <button mat-button>
+            <mat-icon>
+                
+            </mat-icon>
+            Assessnments
+        </button>
+        <button mat-button>
+            <mat-icon>
+
+            </mat-icon>
+            Results
+        </button>
+        </mat-drawer>
+      
+        <div class="example-sidenav-content">
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxFlex.lt-md=100% fxFlex.gt-md=1024px>
+                    <router-outlet></router-outlet>
+                </div> 
+            </div>
+        </div>
+      
+      </mat-drawer-container>
+    
+</div>
