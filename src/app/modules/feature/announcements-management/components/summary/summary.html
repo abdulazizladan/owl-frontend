@@ -1,10 +1,90 @@
 <div class="dashboard-container" fxLayout="column" fxLayoutGap="24px">
-  
-    <!-- Dashboard Header -->
-    <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
-      <div>
-        <h1 class="dashboard-title">Announcements</h1>
-        <p class="dashboard-subtitle">Manage announcements
-      </div>
+  <!-- Dashboard Header -->
+  <div class="dashboard-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <h1 class="dashboard-title">Announcements</h1>
+      <p class="dashboard-subtitle">Manage announcements</p>
     </div>
+    <div fxLayout="row" fxLayoutGap="16px">
+      <button mat-raised-button color="primary" type="button">
+        <mat-icon>refresh</mat-icon>
+        Refresh Data
+      </button>
+      <button mat-icon-button type="button">
+        <mat-icon>notifications</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-toolbar class="table-toolbar">
+    <mat-toolbar-row fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxFlex="1 1 auto" fxLayoutAlign="start center" fxLayoutGap="16px">
+        <mat-form-field fxFlex="1 1 auto" appearance="outline" class="search-field">
+          <mat-label>Search announcements</mat-label>
+          <input matInput type="text" (keyup)="onFilter($event)" placeholder="Search by title or summary">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <button mat-flat-button color="primary" type="button">
+        <mat-icon>add</mat-icon>
+        Add Announcement
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  @if(announcementsStore.loading() === true) {
+    <mat-progress-bar mode="query" color="primary"></mat-progress-bar>
+  }
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="filteredAnnouncements()" class="announcements-table">
+          <!-- Title Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef scope="col">Title</th>
+            <td mat-cell *matCellDef="let announcement">{{ announcement.subject }}</td>
+          </ng-container>
+          <!-- Summary Column -->
+          <ng-container matColumnDef="summary">
+            <th mat-header-cell *matHeaderCellDef scope="col">Summary</th>
+            <td mat-cell *matCellDef="let announcement">{{ announcement.body | slice:0:60 }}...</td>
+          </ng-container>
+          <!-- Date Published Column -->
+          <ng-container matColumnDef="datePublished">
+            <th mat-header-cell *matHeaderCellDef scope="col">Date Published</th>
+            <td mat-cell *matCellDef="let announcement">{{ announcement.datePublished | date:'mediumDate' }}</td>
+          </ng-container>
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef scope="col">Status</th>
+            <td mat-cell *matCellDef="let announcement">{{ announcement.status | titlecase }}</td>
+          </ng-container>
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef scope="col">Actions</th>
+            <td mat-cell *matCellDef="let announcement">
+              <button mat-icon-button color="primary" type="button" matTooltip="Edit Announcement">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" type="button" matTooltip="View Announcement">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" type="button" matTooltip="Discard Announcement">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="cursor: pointer;"></tr>
+        </table>
+        @if(!filteredAnnouncements().length) {
+          <div class="no-data" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+            <mat-icon>announcement</mat-icon>
+            <span>No announcements found.</span>
+          </div>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

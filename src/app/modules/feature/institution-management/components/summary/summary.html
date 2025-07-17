@@ -10,31 +10,36 @@
     </mat-card>
   }
 
+  <!-- Institution Info Card -->
+   <div fxLayout="row">
+  <mat-card fxFlex="100%" style="min-width: 320px; max-width: 420px;">
+    <mat-card-header>
+      <img matCardAvatar src="https://media.istockphoto.com/id/1350696625/vector/education-emblem-with-book-and-graduation-cap.jpg?s=612x612&w=0&k=20&c=5jy03wNwUbwz4UmbQkHwpubd5TtNmTVAXeCKVM806Sw=https://png.pngtree.com/png-vector/20211011/ourmid/pngtree-school-logo-png-image_3977360.png" *ngIf="institution()?.logoUrl" alt="Logo" style="height: 56px; width: 56px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid #eee; margin-right: 16px;">
+      <mat-card-title>{{ institution()?.name || 'Institution Details' }}</mat-card-title>
+      <mat-card-subtitle>Code: {{ institution()?.code }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutGap="16px" style="margin-top: 8px;">
+        <mat-icon color="primary">school</mat-icon>
+        Secondary School
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutGap="8px">
+      <span fxFlex="1 1 auto"></span>
+      <button mat-raised-button color="primary" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+        Refresh
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+
   @if(institution()) {
-    <div fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="start stretch" style="flex-wrap: wrap;">
-      <!-- Institution Info Card -->
-      <mat-card fxFlex="100" style="min-width: 320px; max-width: 420px;">
-        <mat-card-header>
-          <img *ngIf="institution()?.logoUrl" [src]="institution()?.logoUrl" alt="Logo" style="height: 56px; width: 56px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid #eee; margin-right: 16px;">
-          <mat-card-title>{{ institution()?.name || 'Institution Details' }}</mat-card-title>
-          <mat-card-subtitle>Code: {{ institution()?.code }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutGap="16px" style="margin-top: 8px;">
-            <mat-icon color="primary">school</mat-icon>
-            <!--<span>{{ institution()?.type || 'Secondary School' }}</span>-->
-          </div>
-        </mat-card-content>
-        <mat-card-actions fxLayout="row" fxLayoutGap="8px">
-          <button mat-raised-button color="primary" (click)="refresh()">
-            <mat-icon>refresh</mat-icon>
-            Refresh
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="start stretch" style="flex-wrap: wrap;">
+      
 
       <!-- Campuses Card -->
-      <mat-card fxFlex="100" style="min-width: 320px; max-width: 420px;">
+      <mat-card fxFlex.gt-xs="50%" style="min-width: 320px; max-width: 420px;">
         <mat-card-header>
           <mat-icon mat-card-avatar color="primary">location_city</mat-icon>
           <mat-card-title>Campuses</mat-card-title>
@@ -60,7 +65,7 @@
       </mat-card>
 
       <!-- Staff Distribution Card -->
-      <mat-card fxFlex="45" style="min-width: 260px;">
+      <mat-card fxFlex.gt-xs="50%" style="min-width: 260px;">
         <mat-card-header>
           <mat-icon mat-card-avatar color="primary">people</mat-icon>
           <mat-card-title>Staff Distribution</mat-card-title>
@@ -87,8 +92,11 @@
         </mat-card-content>
       </mat-card>
 
-      <!-- Stats Card -->
-      <mat-card fxFlex="45" style="min-width: 260px;">
+      
+    </div>
+  }
+  <!-- Stats Card -->
+      <mat-card style="min-width: 260px;">
         <mat-card-header>
           <mat-icon mat-card-avatar color="primary">bar_chart</mat-icon>
           <mat-card-title>Stats</mat-card-title>
@@ -106,6 +114,4 @@
           </div>
         </mat-card-content>
       </mat-card>
-    </div>
-  }
 </div>

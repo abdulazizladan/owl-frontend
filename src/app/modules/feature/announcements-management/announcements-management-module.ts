@@ -1,5 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AnnouncementsManagementRoutingModule } from './announcements-management-routing-module';
 import { AnnouncementDetails } from './components/announcement-details/announcement-details';
@@ -17,6 +30,17 @@ import { Summary } from './components/summary/summary';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTableModule,
+    MatIconModule,
+    MatProgressBarModule,
+    MatInputModule,
+    MatFormFieldModule,
     AnnouncementsManagementRoutingModule
   ]
 })
