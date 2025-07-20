@@ -1,3 +1,11 @@
+.dashboard-container {
+  padding: 24px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+mat-list-item {
+border-top: 1px solid gray;
+}
 .calendar-summary-container {
   display: flex;
   flex-direction: column;

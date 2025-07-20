@@ -1,4 +1,26 @@
+<div class="dashboard-container" fxlayout="column" fxlayoutgap="24px">
+
+  <!-- Dashboard Header -->
+  <div class="dashboard-header"  fxLayout="row" fxlayoutalign="space-between center">
+    <div>
+      <h1 class="dashboard-title">School calendar</h1>
+      <p class="dashboard-subtitle">Manage calendar events</p>
+    </div>
+    <span fxFlex="1 1 auto"></span>
+    <div fxlayout="row" fxlayoutgap="16px">
+      
+      <button mat-raised-button color="primary" type="button">
+        <mat-icon>refresh</mat-icon>
+        Refresh Data
+      </button>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+    </div>
+  </div>
+
 <div class="calendar-summary-container">
+
   <mat-card class="term-card">
     <h2>Academic Terms</h2>
     <div class="terms-list">
@@ -22,4 +44,5 @@
       </ul>
     </div>
   </mat-card>
+</div>
 </div>
