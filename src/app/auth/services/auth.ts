@@ -1,18 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { LoginData } from '../models/loginData.model';
+import { env } from '../../../environment/environment'
+import { firstValueFrom, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Auth {
+export class AuthService {
 
-  private http = inject(HttpClient);
+  private readonly http: HttpClient = inject(HttpClient);
 
-  login() {
-
-  }
-
-  resetPassword() {
-
+  login(data: LoginData) {
+    const loginUrl = `${env.baseUrl}/auth/login`;
+    //return this.http.post<{ access_token: string }>(loginUrl, data).pipe(
+    //  map(response => response.access_token)
+    //);
+    return firstValueFrom(
+      this.http.post<{ access_token: string }>(loginUrl, data).pipe(
+        map(response => response.access_token)
+      )
+    )
   }
 }

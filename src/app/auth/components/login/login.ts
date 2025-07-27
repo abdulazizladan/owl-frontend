@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,6 +14,8 @@ export class Login implements OnInit {
   userLoginForm!: FormGroup;
   isLoading = false;
   hidePassword = true;
+
+  private readonly authService = inject(AuthService);
 
   constructor(
     private fb: FormBuilder,
@@ -37,20 +40,7 @@ export class Login implements OnInit {
   }
 
   submit(): void {
-    if (this.userLoginForm.valid) {
-      this.isLoading = true;
-      
-      // Simulate API call for authentication
-      setTimeout(() => {
-        console.log('Login form submitted:', this.userLoginForm.value);
-        this.isLoading = false;
-        
-        // Handle successful login
-        // this.router.navigate(['/dashboard']);
-      }, 2000);
-    } else {
-      this.markFormGroupTouched();
-    }
+    this.authService.login(this.userLoginForm.value)
   }
 
   private markFormGroupTouched(): void {

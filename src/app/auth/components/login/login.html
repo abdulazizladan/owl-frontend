@@ -59,6 +59,7 @@
           type="submit" 
           [disabled]="isLoading || userLoginForm.invalid"
           fxLayoutAlign="center center"
+          (click)="submit()"
           routerLink="../../admin"
           >
           @if (!isLoading) {

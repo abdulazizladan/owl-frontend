@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { BaseChartDirective } from 'ng2-charts';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,6 +28,7 @@ import { Dashboard } from './components/dashboard/dashboard';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BaseChartDirective,
     FlexLayoutModule,
     MatToolbarModule,
     MatSidenavModule,

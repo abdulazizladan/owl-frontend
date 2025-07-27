@@ -1,3 +1,3 @@
 export const env = {
-    baseUrl: "",
+    baseUrl: "https://owl-backend-wtal.onrender.com",
 }
