@@ -1,9 +1,13 @@
+export interface UsersSummary {
+    total: number,
+    admin: number,
+    staff: number,
+    students: number,
+    guardians: number,
+    active: number
+}
 export interface AdminDashboardSummary {
-    usersSummary: {
-        total: number,
-        staff: number,
-        sudents: number
-    },
+    usersSummary: UsersSummary,
     enrolmentSummary: {
         recentEnrolment: number,
         lastEnrolment: number

@@ -11,7 +11,7 @@ export class AuthService {
 
   private readonly http: HttpClient = inject(HttpClient);
 
-  login(data: LoginData) {
+  login(data: LoginData): Promise<string> {
     const loginUrl = `${env.baseUrl}/auth/login`;
     //return this.http.post<{ access_token: string }>(loginUrl, data).pipe(
     //  map(response => response.access_token)

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { AuthStore } from '../../../../auth/store/auth.store';
 
 @Component({
   selector: 'app-layout',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   templateUrl: './layout.html',
   styleUrl: './layout.scss'
 })
-export class Layout {
+export class Layout implements OnInit {
+
+  ngOnInit() {
+    
+  }
+
+  public authStore = inject(AuthStore);
+
+  logout() {
+    this.authStore.logout();
+  }
 
 }

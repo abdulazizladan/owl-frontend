@@ -17,16 +17,19 @@
     </div>
   </div>
 
+  @if(store){
   <div fxLayout.lt-sm="column" fxLayout.gt-sm="row" fxLayoutGap.lt-sm="25px" fxLayoutGap.gt-sm="25px" fxLayoutAlign.gt-sm="center space-between">
 
     <!-- Total Users Card -->
     <mat-card class="stat-card total-users" fxFlex.gt-md="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
-          <div class="stat-number">0</div>
-          <div class="stat-label">Total Users</div>
+          <div class="stat-number">
+            {{store.usersSummary()?.admin}}
+          </div>
+          <div class="stat-label">Admin Users</div>
         </div>
-        <mat-icon class="stat-icon">people</mat-icon>
+        <mat-icon class="stat-icon">person</mat-icon>
       </mat-card-content>
     </mat-card>
 
@@ -34,7 +37,9 @@
     <mat-card class="stat-card students" fxFlex.gt-md="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
-          <div class="stat-number">0</div>
+          <div class="stat-number">
+            {{store.usersSummary()?.students}}
+          </div>
           <div class="stat-label">Students</div>
         </div>
         <mat-icon class="stat-icon">school</mat-icon>
@@ -45,7 +50,9 @@
     <mat-card class="stat-card staff" fxFlex.gt-md="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
-          <div class="stat-number">0</div>
+          <div class="stat-number">
+            {{store.usersSummary()?.staff}}
+          </div>
           <div class="stat-label">Staff</div>
         </div>
         <mat-icon class="stat-icon">work</mat-icon>
@@ -56,7 +63,9 @@
     <mat-card class="stat-card guardians" fxFlex.gt-md="25%">
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
-          <div class="stat-number">0</div>
+          <div class="stat-number">
+            {{store.usersSummary()?.guardians}}
+          </div>
           <div class="stat-label">Guardians</div>
         </div>
         <mat-icon class="stat-icon">family_restroom</mat-icon>
@@ -64,6 +73,7 @@
     </mat-card>
 
   </div>
+  }
 
   
   <!-- Main Content Section -->
@@ -81,24 +91,23 @@
         </mat-card-header>
       </mat-card>
       
-      <div class="trends-grid" fxLayout="row" fxLayoutGap="16px" fxLayout.lt-md="column">
-        @for (trend of [1, 2]; track []) {
-          <mat-card class="trend-card" fxFlex="50%">
-            <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px">
-              <div class="trend-term">up</div>
-              <div class="trend-students">1 students</div>
-              <div class="trend-growth" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-                <mat-icon>
-                  growth
-                </mat-icon>
-                <span>
-                  75%
-                </span>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        }
-      </div>
+      <mat-card class="chart-card" style="margin-bottom: 24px;">
+        <mat-card-header>
+          <mat-card-title>Student enrolment trends</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div style="display: block;">
+            <canvas
+              baseChart
+              [data]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [type]="barChartType"
+              >
+            </canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
 
     <!-- Recent Activities -->
@@ -165,5 +174,10 @@
         <button mat-raised-button color="primary">Generate Report</button>
       </mat-card-content>
     </mat-card>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="15px">
+    <!-- Chart Card -->
+  
   </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
+import { AuthStore } from '../../store/auth.store';
 
 @Component({
   selector: 'app-login',
@@ -16,21 +17,22 @@ export class Login implements OnInit {
   hidePassword = true;
 
   private readonly authService = inject(AuthService);
+  public authStore = inject(AuthStore);
 
   constructor(
     private fb: FormBuilder,
     private router: Router
   ) {
     this.userLoginForm = this.fb.group({
-      email: ['', [
+      email: ['abdulazizladan@gmail.com', [
         Validators.required, 
         Validators.email,
         Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
       ]],
-      password: ['', [
+      password: ['password', [
         Validators.required, 
         Validators.minLength(8),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/)
+        //Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/)
       ]]
     });
   }
@@ -40,7 +42,8 @@ export class Login implements OnInit {
   }
 
   submit(): void {
-    this.authService.login(this.userLoginForm.value)
+    //this.authService.login(this.userLoginForm.value)
+    this.authStore.login(this.userLoginForm.value)
   }
 
   private markFormGroupTouched(): void {

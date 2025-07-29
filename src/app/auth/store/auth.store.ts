@@ -59,14 +59,17 @@ export const AuthStore = signalStore(
           case 'admin':
             router.navigate(['/admin']);
             break;
-          case 'director':
-            router.navigate(['/director']);
+          case 'staff':
+            router.navigate(['/staff']);
             break;
-          case 'manager':
-            router.navigate(['/manager']);
+          case 'student':
+            router.navigate(['/student']);
+            break;
+          case 'guardian':
+            router.navigate(['/guardian'])
             break;
           default:
-            router.navigate(['/']);
+            router.navigate(['**']);
         }
       } catch (error) {
         patchState(store, {

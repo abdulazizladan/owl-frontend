@@ -9,7 +9,7 @@
   }
   
   .example-sidenav {
-    padding: 0px;
+    padding: 10px;
     height: 100%;
     width: 240px;
     display: flex;
@@ -19,6 +19,8 @@
         width: 100%;
         aspect-ratio: 1;
         background-color: gray;
+        background-image: url('../../../../../../public/profile_pic.jpg');
+        background-size: contain;
         margin: 0px;
     }
     button {
@@ -34,8 +36,8 @@
         }
         
         &.active {
-          background-color: rgba(0, 0, 0, 0.1);
-          color: #1976d2;
+          background-color: rgb(34, 40, 125);
+          color: #ffffff;
         }
     }
   }
@@ -83,6 +85,6 @@
   }
   
   .active {
-    background-color: rgb(123, 123, 156);
+    background-color: rgb(59, 59, 147);
     color: white;
-  }
+ }

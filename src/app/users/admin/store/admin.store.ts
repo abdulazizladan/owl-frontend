@@ -1,16 +1,18 @@
 import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
-import { AdminDashboardSummary } from "../models/admin-dashboard-summary.model";
+import { AdminDashboardSummary, UsersSummary } from "../models/admin-dashboard-summary.model";
 import { inject } from "@angular/core";
 import { AdminService } from "../services/admin-service";
 
 export interface AdminState {
-    summary: AdminDashboardSummary | null;
+    adminSummary: AdminDashboardSummary | null;
+    usersSummary: UsersSummary | null;
     loading: boolean;
     error: string | null;
 }
 
 const initialState: AdminState = {
-    summary: null,
+    adminSummary: null,
+    usersSummary: null,
     loading: false,
     error: null
 }
@@ -25,7 +27,10 @@ export const AdminStore = signalStore(
                 error: null
             })
             try {
+                const uSummary = await adminService.getUsersSummary();
                 patchState(store, {
+                    adminSummary: null,
+                    usersSummary: uSummary,
                     loading: false,
                     error: null
                 })

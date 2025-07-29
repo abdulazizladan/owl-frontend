@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BaseChartDirective } from 'ng2-charts';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -30,6 +31,7 @@ import { MatCalendarHeader } from "@angular/material/datepicker";
     HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    BaseChartDirective,
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,

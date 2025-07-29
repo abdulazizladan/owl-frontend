@@ -39,28 +39,30 @@
             [type]="hidePassword ? 'password' : 'text'" 
             formControlName="password" 
             placeholder="Enter your password">
-          <button 
+            <mat-icon matSuffix>lock</mat-icon>
+          <!--<button 
             mat-icon-button 
             matSuffix 
             (click)="togglePasswordVisibility()" 
             [attr.aria-label]="'Hide password'" 
             [attr.aria-pressed]="hidePassword">
-            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
+            
+           <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>-->
           @if (isFieldInvalid('password')) {
             <mat-error>{{ getFieldError('password') }}</mat-error>
           }
         </mat-form-field>
-
+        @if(authStore.loading()){
+          <mat-progress-bar mode="query"></mat-progress-bar>
+        }
         <!-- Login Button -->
         <button 
           mat-flat-button 
           color="primary" 
-          type="submit" 
-          [disabled]="isLoading || userLoginForm.invalid"
+          [disabled]="authStore.loading() || userLoginForm.invalid"
           fxLayoutAlign="center center"
           (click)="submit()"
-          routerLink="../../admin"
           >
           @if (!isLoading) {
             <mat-icon>login</mat-icon>

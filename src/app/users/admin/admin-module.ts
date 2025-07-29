@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AdminRoutingModule } from './admin-routing-module';
 import { Layout } from './components/layout/layout';
@@ -36,6 +37,7 @@ import { Dashboard } from './components/dashboard/dashboard';
     MatIconModule,
     MatCardModule,
     MatMenuModule,
+    MatExpansionModule,
     AdminRoutingModule
   ]
 })
