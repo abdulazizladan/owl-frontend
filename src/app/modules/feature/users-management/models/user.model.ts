@@ -1,12 +1,16 @@
 export class UserModel {
-    "id": string;
-    "firstName": string;
-    "middleName": string;
-    "lastName": string;
-    "role": "Admin" | "Staff" | "Guardian" | "Student";
-    "status": "Active" | "Suspended";
+    "role": string;
+    "status": string;
     "email": string;
-    "phone": string;
-    "address": string;
-    "createdAt": Date;
+    //"createdAt": Date;
+    "info": {
+        "firstName": string;
+        "middleName": string;
+        "lastName": string;
+        "image": string;
+    };
+    "contact": {
+        "phone": string;
+        //"address": string;
+    };
 }

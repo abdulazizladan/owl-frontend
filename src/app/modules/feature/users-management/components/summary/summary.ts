@@ -10,6 +10,7 @@ import { UsersStore } from '../../store/user.store';
   styleUrl: './summary.scss'
 })
 export class Summary implements OnInit {
+  
   private dialog = inject(MatDialog);
   public usersStore = inject(UsersStore);
 
@@ -18,7 +19,7 @@ export class Summary implements OnInit {
   filteredUsers = computed(() => {
     const filter = this.filterValue().toLowerCase();
     return this.usersStore.users().filter(user =>
-      (`${user.firstName} ${user.middleName} ${user.lastName}`.toLowerCase().includes(filter) ||
+      (`${user.info.firstName} ${user.info.middleName} ${user.info.lastName}`.toLowerCase().includes(filter) ||
         user.email.toLowerCase().includes(filter) ||
         user.role.toLowerCase().includes(filter) ||
         user.status.toLowerCase().includes(filter))
@@ -28,8 +29,14 @@ export class Summary implements OnInit {
   displayedColumns: string[] = ['fullName', 'email', 'role', 'status', 'actions'];
 
   openAddUserDialog() {
-    this.dialog.open(AddUser, {
-      data: {}
+
+    const dialogRef = this.dialog.open(AddUser, {
+      
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.usersStore.addUser(result);
+      }
     });
   }
 
@@ -54,5 +61,7 @@ export class Summary implements OnInit {
     alert('Toggle disable for: ' + user.firstName);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.usersStore.loadUsers();
+  }
 }

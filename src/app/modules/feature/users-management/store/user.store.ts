@@ -13,7 +13,7 @@ interface UserState {
 
 export const initialState: UserState = {
     users: [
-        {
+        /**{
             id: '1',
             firstName: 'Alice',
             middleName: 'Marie',
@@ -48,7 +48,7 @@ export const initialState: UserState = {
             phone: '345-678-9012',
             address: '789 Pine Rd, Sometown, USA',
             createdAt: new Date(),
-        }
+        }**/
     ],
     selectedUser: null,
     loading: false,
@@ -65,9 +65,9 @@ export const UsersStore = signalStore(
                 error: null 
             });
             try {
-                const users = await usersService.getUsers();
+                const loadedUsers = await usersService.getUsers();
                 patchState(store, { 
-                    users, 
+                    users: loadedUsers, 
                     loading: false,
                     error: null
                 });
@@ -81,7 +81,7 @@ export const UsersStore = signalStore(
         async selectUser(id: string) {
             patchState(store, { loading: true, error: null });
             try {
-                const user = await usersService.getUser(id);
+                const user = await usersService.getUserById(id);
                 patchState(store, { selectedUser: user, loading: false });
             } catch (error) {
                 patchState(store, {
@@ -93,18 +93,20 @@ export const UsersStore = signalStore(
         async addUser(user: UserModel) {
             patchState(store, { loading: true, error: null });
             try {
-                const newUser = await usersService.addUser(user);
-                patchState(store, state => ({
-                    users: [newUser, ...state.users],
-                    loading: false
-                }));
+              // Assuming usersService.addUser returns the newly created user
+              const newUser = await usersService.addUser(user);
+              patchState(store, state => ({
+                users: [...state.users, user], // Add new user to the beginning of the array
+                loading: false,
+              }));
             } catch (error) {
-                patchState(store, {
-                    loading: false,
-                    error: "Unable to complete action. Check your connection and try again."
-                });
+              console.error('Error adding user:', error); // Log the actual error for debugging
+              patchState(store, {
+                loading: false,
+                error: 'Unable to complete action. Check your connection and try again.',
+              });
             }
-        },
+          },
         async updateUser(id: string, user: UserModel) {
             patchState(store, { loading: true, error: null });
             try {

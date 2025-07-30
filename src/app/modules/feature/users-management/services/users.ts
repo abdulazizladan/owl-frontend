@@ -20,7 +20,7 @@ export class UsersService {
   async getUsers(): Promise<UserModel[]> {
     // This will trigger the store to load users and manage loading state
     return firstValueFrom(
-      this.http.get<UserModel[]>(`${this.baseUrl}/users`).pipe(
+      this.http.get<UserModel[]>(`${this.baseUrl}/user`).pipe(
         map(response => response)
     ))
   }
@@ -30,7 +30,7 @@ export class UsersService {
    * @param id 
    * @returns 
    */
-  async getUser( id: string ): Promise<UserModel> {
+  async getUserById( id: string ): Promise<UserModel> {
     return firstValueFrom(
       this.http.get<UserModel>(`${this.baseUrl}/${id}`).pipe(
         map(response => response)
@@ -44,8 +44,8 @@ export class UsersService {
    */
   async addUser( user: UserModel ): Promise<UserModel> {
     return firstValueFrom(
-      this.http.post<UserModel>(`${this.baseUrl}`, user).pipe(
-        map(response => response)
+      this.http.post<{success: boolean, data: UserModel, message: string}>(`${this.baseUrl}/user`, user).pipe(
+        map(response => response.data)
     ))
   }
 

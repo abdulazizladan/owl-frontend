@@ -41,7 +41,7 @@ export class Dashboard implements OnInit{
     scales: {
       x: {},
       y: { beginAtZero: true }
-    },
+    }
   };
   barChartColors = [
     {
