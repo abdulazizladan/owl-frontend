@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BaseChartDirective } from 'ng2-charts';
@@ -27,7 +27,6 @@ import { Dashboard } from './components/dashboard/dashboard';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     BaseChartDirective,
     FlexLayoutModule,
@@ -39,6 +38,9 @@ import { Dashboard } from './components/dashboard/dashboard';
     MatMenuModule,
     MatExpansionModule,
     AdminRoutingModule
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class AdminModule { }

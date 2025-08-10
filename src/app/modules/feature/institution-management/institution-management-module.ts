@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -28,7 +28,6 @@ import { MatCalendarHeader } from "@angular/material/datepicker";
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     BaseChartDirective,
@@ -40,6 +39,9 @@ import { MatCalendarHeader } from "@angular/material/datepicker";
     MatListModule,
     InstitutionManagementRoutingModule,
     MatCalendarHeader
-]
+  ],
+  providers: [
+    provideHttpClient()
+  ]
 })
 export class InstitutionManagementModule { }

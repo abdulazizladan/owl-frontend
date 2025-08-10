@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BaseChartDirective } from 'ng2-charts';
@@ -32,7 +32,6 @@ import { Summary } from './components/summary/summary';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     BaseChartDirective,
     FlexLayoutModule,
@@ -45,6 +44,9 @@ import { Summary } from './components/summary/summary';
     MatInputModule,
     MatFormFieldModule,
     AnnouncementsManagementRoutingModule
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class AnnouncementsManagementModule { }

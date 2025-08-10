@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -32,6 +33,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatIconModule,
     //MatDatepickerModule
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class CalendarManagementModule { }

@@ -39,9 +39,40 @@
             Institution
         </button>
         <button mat-button routerLink="./users" routerLinkActive="active">
-            <mat-icon>people</mat-icon>
+            <mat-icon>person</mat-icon>
             Users
         </button>
+        
+        <!--
+        <mat-accordion style="box-shadow: none; border-radius: 0;">
+          <mat-expansion-panel style="box-shadow: none; border-radius: 0;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>people</mat-icon>
+                Users
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div style="display: flex; flex-direction: column; gap: 8px; padding: 8px 0;">
+              <button mat-button routerLink="./users/admin" routerLinkActive="active">
+                <mat-icon>admin_panel_settings</mat-icon>
+                Admin
+              </button>
+              <button mat-button routerLink="./users/student" routerLinkActive="active">
+                <mat-icon>school</mat-icon>
+                Student
+              </button>
+              <button mat-button routerLink="./users/guardian" routerLinkActive="active">
+                <mat-icon>supervisor_account</mat-icon>
+                Guardian
+              </button>
+              <button mat-button routerLink="./users/staff" routerLinkActive="active">
+                <mat-icon>badge</mat-icon>
+                Staff
+              </button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      -->
         <button mat-button routerLink="./calendar" routerLinkActive="active">
             <mat-icon>schedule</mat-icon>
             Calendar

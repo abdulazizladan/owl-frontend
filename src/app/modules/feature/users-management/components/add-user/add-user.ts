@@ -24,7 +24,7 @@ export class AddUser implements OnInit {
   userRoles = [
     { value: 'admin', label: 'Administrator' },
     { value: 'staff', label: 'Staff' },
-    { value: 'student', label: 'Student' },
+    //{ value: 'student', label: 'Student' }, Remove student role. Enable only in enrolment component of student management module
     { value: 'guardian', label: 'Guardian' }
   ];
 

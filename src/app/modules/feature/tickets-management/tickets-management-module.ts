@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -28,7 +28,6 @@ import { TicketDetails } from './components/ticket-details/ticket-details';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatToolbarModule,
@@ -42,6 +41,9 @@ import { TicketDetails } from './components/ticket-details/ticket-details';
     MatChipsModule,
     MatListModule,
     TicketsManagementRoutingModule
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class TicketsManagementModule { }

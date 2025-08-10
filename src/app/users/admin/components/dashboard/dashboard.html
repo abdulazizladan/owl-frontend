@@ -75,6 +75,59 @@
   </div>
   }
 
+  <!-- Tickets row -->
+  <div fxLayout.lt-sm="column" fxLayout.gt-sm="row" fxLayoutGap.lt-sm="25px" fxLayoutGap.gt-sm="25px" fxLayoutAlign.gt-sm="center space-between">
+    
+    <mat-card class="stat-card total" fxFlex.gt-md="25%">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">
+            0
+          </div>
+          <div class="stat-label">Total tickets</div>
+        </div>
+        <mat-icon class="stat-icon">support</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card active" fxFlex.gt-md="25%">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">
+            0
+          </div>
+          <div class="stat-label">Active tickets</div>
+        </div>
+        <mat-icon class="stat-icon">report</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card resolved" fxFlex.gt-md="25%">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">
+            0
+          </div>
+          <div class="stat-label">Resolved tickets</div>
+        </div>
+        <mat-icon class="stat-icon">check</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card canceled" fxFlex.gt-md="25%">
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <div class="stat-number">
+            0
+          </div>
+          <div class="stat-label">Canceled tickets</div>
+        </div>
+        <mat-icon class="stat-icon">clear</mat-icon>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
   
   <!-- Main Content Section -->
   <div class="main-content" fxLayout.lt-sm="column" fxLayout.gt-sm="row" fxLayoutGap="24px" fxLayout.lt-lg="column">

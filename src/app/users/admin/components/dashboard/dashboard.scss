@@ -98,6 +98,42 @@
       color: white;
     }
   }
+
+  &.total {
+    background: linear-gradient(135deg, #272827 0%, #5a5a5a 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #3563ae 0%, #2a4cd4 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+
+  &.resolved {
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
+
+  &.canceled {
+    background: linear-gradient(135deg, #af4c4c 0%, #db3636 100%);
+    color: white;
+    
+    .stat-number, .stat-label, .stat-icon {
+      color: white;
+    }
+  }
 }
 
 .main-content {

@@ -51,7 +51,7 @@ export interface FeeType {
     dueDate: Date;
     totalAmountDue: number;
     totalAmountPaid: number;
-    balance: number;
+    balance: number;//totalAmountDue - totalAmountPaid
     breakdown: { feeTypeId: string; amount: number; }[]; // Array of fee components
     status: 'Generated' | 'Partially Paid' | 'Paid' | 'Overdue';
     generatedByUserId: string;

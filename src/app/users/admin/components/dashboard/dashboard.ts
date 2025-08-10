@@ -25,10 +25,14 @@ export class Dashboard implements OnInit{
       {
         data: [2189, 2560, 1800, 2650],
         label: 'Enrolment',
-        backgroundColor: '#1565c0',
-        borderColor: '#1976d2',
-        hoverBackgroundColor: '#1565c0',
-        hoverBorderColor: '#1565c0',
+        backgroundColor: '#424242',
+        borderColor: '#424242',
+        hoverBackgroundColor: '#616161',
+        hoverBorderColor: '#616161',
+        borderWidth: 0,
+        borderRadius: 2,
+        barThickness: 30,
+        maxBarThickness: 40
       }
     ]
   };

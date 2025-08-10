@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +26,6 @@ import { Login } from './components/login/login'
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FlexLayoutModule,
     MatCardModule,
     MatInputModule, 
@@ -36,6 +35,9 @@ import { Login } from './components/login/login'
     MatFormFieldModule,
     MatProgressSpinnerModule,
     AuthRoutingModule
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class AuthModule { }
